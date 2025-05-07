@@ -70,11 +70,13 @@ El **Validador Semántico Jurídico** es un servicio basado en inteligencia arti
 ## ⚙️ Uso básico
 
 ### Procesar un archivo
+
 ```bash
 python validador_service_v4.py Anexos_Ejemplo Resultados
 ```
 
 ### Procesar diferentes formatos
+
 ```bash
 # Procesar un archivo PDF
 python validador_service_v4.py Anexos_Ejemplo/documento.pdf Resultados
@@ -87,6 +89,7 @@ python validador_service_v4.py Anexos_Ejemplo/documento.txt Resultados
 ```
 
 ### Manejo de errores
+
 Si ocurre un error, revisa los logs generados en la carpeta `Resultados/logs/`.
 
 ---
@@ -94,11 +97,13 @@ Si ocurre un error, revisa los logs generados en la carpeta `Resultados/logs/`.
 ## 📦 Docker
 
 ### Construir la imagen
+
 ```bash
 docker build -f Dockerfile.service -t validador-service-v4 .
 ```
 
 ### Ejecutar el contenedor
+
 ```bash
 docker run --rm \
   -v $(pwd)/Anexos_Ejemplo:/entrada \
@@ -107,6 +112,7 @@ docker run --rm \
 ```
 
 ### Configurar variables de entorno
+
 ```bash
 docker run --rm \
   -e LOG_LEVEL=DEBUG \
@@ -120,16 +126,19 @@ docker run --rm \
 ## ☸️ MicroK8s
 
 ### Aplicar el job
+
 ```bash
 microk8s kubectl apply -f validador_job_v4.yaml
 ```
 
 ### Verificar el estado del job
+
 ```bash
 microk8s kubectl get jobs
 ```
 
 ### Acceder a los logs del pod
+
 ```bash
 microk8s kubectl logs -l job-name=validador-job-v4
 ```
@@ -141,6 +150,7 @@ microk8s kubectl logs -l job-name=validador-job-v4
 La función `draw_semantic_graph` genera un grafo de relaciones semánticas entre conceptos jurídicos utilizando la biblioteca `networkx`. Este grafo puede visualizarse y exportarse como una imagen.
 
 ### Ejemplo de uso
+
 ```python
 import networkx as nx
 from validador_service_v4 import draw_semantic_graph
@@ -163,7 +173,8 @@ El archivo `semantic_graph.png` contendrá la visualización del grafo.
 
 El proyecto incluye visualizaciones generadas con `matplotlib` para representar similitudes semánticas y resultados de análisis.
 
-### Ejemplo de uso
+### Ejemplo uso
+
 ```python
 import matplotlib.pyplot as plt
 
@@ -185,11 +196,13 @@ El archivo `example_plot.png` contendrá el gráfico generado.
 ## 🧪 Pruebas
 
 ### Ejecutar todas las pruebas
+
 ```bash
 pytest tests/
 ```
 
 ### Ejecutar pruebas específicas
+
 ```bash
 pytest tests/test_visualizations.py
 ```
@@ -213,18 +226,24 @@ pytest tests/test_visualizations.py
 
 1. Haz un fork del repositorio.
 2. Crea una rama para tus cambios:
+
    ```bash
    git checkout -b mi-nueva-funcionalidad
    ```
+
 3. Realiza tus cambios y asegúrate de que las pruebas pasen:
+
    ```bash
    pytest tests/
    ```
+
 4. Haz un commit y sube tus cambios:
+
    ```bash
    git commit -m "Añadida nueva funcionalidad X"
    git push origin mi-nueva-funcionalidad
    ```
+
 5. Abre un pull request en GitHub.
 
 ---
