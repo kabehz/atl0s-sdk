@@ -6,7 +6,7 @@ import sys
 import json
 import hashlib
 from pathlib import Path
-import textract
+# import textract
 import pandas as pd
 import matplotlib.pyplot as plt
 import networkx as nx
@@ -15,6 +15,19 @@ from sentence_transformers import SentenceTransformer, util
 from tqdm import tqdm
 from rich import print
 from rich.table import Table
+from PyPDF2 import PdfReader
+from docx import Document
+from PIL import Image
+import pytesseract
+from rich.console import Console
+from rich.progress import Progress
+from rich.panel import Panel
+from rich.markdown import Markdown
+from rich.live import Live
+from rich.text import Text
+import warnings
+warnings.filterwarnings("ignore", category=UserWarning, module="matplotlib")
+
 
 nltk.download('punkt')
 MODEL = SentenceTransformer('all-MiniLM-L6-v2')
@@ -35,8 +48,28 @@ def hash_file(path, algorithm='sha256'):
             h.update(block)
     return h.hexdigest()
 
-def extract_text(path):
-    return textract.process(str(path)).decode('utf-8', errors='ignore')
+
+## Text Extraction
+# def extract_text(path):
+#     return textract.process(str(path)).decode('utf-8', errors='ignore')
+
+def extract_text_from_pdf(file_path):
+    reader = PdfReader(file_path)
+    text = ""
+    for page in reader.pages:
+        text += page.extract_text()
+    return text
+
+def extract_text_from_docx(file_path):
+    doc = Document(file_path)
+    text = "\n".join([paragraph.text for paragraph in doc.paragraphs])
+    return text
+
+def extract_text_from_image(image_path):
+    text = pytesseract.image_to_string(Image.open(image_path))
+    return text
+
+## Semantic Analysis
 
 def semantic_analysis(text, keywords):
     sentences = nltk.sent_tokenize(text)

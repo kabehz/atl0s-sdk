@@ -19,10 +19,15 @@ Markdown>=3.8
 pyyaml==6.0.1
 
 # Procesamiento de documentos
-textract==1.6.5
+#extract-msg==0.29.3
+#textract==1.6.4
+PyPDF2==1.26.0
+python-docx==0.8.11
+pytesseract==0.3.8
+
 # Análisis y clasificación semántica
 sentence-transformers==2.6.1
-transformers==4.30.2
+transformers>=4.32.0
 torch==2.0.1
 torchvision==0.15.2
 sentencepiece==0.1.96
@@ -48,8 +53,6 @@ pandas==2.2.2
 
 # Validación de datos
 pydantic==1.10.7
-
-
 
 
 
