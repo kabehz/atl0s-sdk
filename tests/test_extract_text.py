@@ -1,7 +1,7 @@
 from PyPDF2 import PdfWriter
 # from pypdf import PdfReader
 from docx import Document
-from PIL import Image
+from PIL import Image, ImageDraw
 import pytesseract
 import unittest
 import sys
@@ -11,10 +11,6 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
 from validador_service_v4 import extract_text
-
-
-
-from PyPDF2 import PdfWriter
 
 class TestExtractText(unittest.TestCase):
     def setUp(self):
@@ -35,21 +31,21 @@ class TestExtractText(unittest.TestCase):
         doc.add_paragraph("Dummy DOCX content")
         doc.save(self.docx_file)
 
+        # Crear una imagen válida
         img = Image.new("RGB", (100, 100), color="white")
-        draw = Image.Draw(img)
+        draw = ImageDraw.Draw(img)  # Usa ImageDraw para dibujar en la imagen
         draw.text((10, 10), "Dummy Image content", fill="black")
-        img.save(self.image_file)
         img.save(self.image_file)
 
         # Crear un archivo no soportado
         self.unsupported_file.write_text("Dummy Unsupported content")
 
+    def tearDown(self):
+        # Eliminar los archivos creados
         self.pdf_file.unlink(missing_ok=True)
         self.docx_file.unlink(missing_ok=True)
         self.image_file.unlink(missing_ok=True)
         self.unsupported_file.unlink(missing_ok=True)
-        self.image_file.unlink()
-        self.unsupported_file.unlink()
 
     def test_extract_text_pdf(self):
         text = extract_text(self.pdf_file)
@@ -63,12 +59,13 @@ class TestExtractText(unittest.TestCase):
         text = extract_text(self.image_file)
         self.assertIn("Dummy Image content", text)
 
-    # Test extracting text from an unsupported file type (e.g., .xlsx)
     def test_extract_text_unsupported_file_type(self):
         with self.assertRaises(ValueError):
             extract_text(self.unsupported_file)
-        
 
+if __name__ == "__main__":
+    unittest.main()
+      
     # def test_extract_text_empty_file(self):
     #     empty_file = Path(__file__).parent / "anexos/empty_file.txt"
     #     empty_file.write_text("")
@@ -141,9 +138,7 @@ class TestExtractText(unittest.TestCase):
     #         extract_text(unsupported_file)
     #     unsupported_file.unlink()
 
-if __name__ == "__main__":
-    unittest.main()
-# from validador_service_v4 import extract_text
+
 
 
 
