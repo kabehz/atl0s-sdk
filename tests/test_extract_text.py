@@ -1,5 +1,5 @@
 from PyPDF2 import PdfWriter
-
+# from pypdf import PdfReader
 from docx import Document
 from PIL import Image
 import pytesseract

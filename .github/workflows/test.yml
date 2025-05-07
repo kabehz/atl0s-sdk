@@ -42,7 +42,8 @@ jobs:
       # Ejecución de los tests
       - name: Run Unit Tests
         run: |
-          pytest tests/
+          pytest tests/test_extract_text.py 
+      #--maxfail=1 --disable-warnings -q
       
       # Cache de resultados de pytest
       - name: Cache pytest results

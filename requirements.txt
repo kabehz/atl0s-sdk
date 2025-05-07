@@ -34,18 +34,37 @@ pymdown-extensions==10.5
 Markdown>=3.8
 pyyaml==6.0.1
 
-# Procesamiento de documentos
+## Procesamiento de documentos
 #extract-msg==0.29.3
 #textract==1.6.4
+
 PyPDF2>=3.0.1
+# PyPDF2 es una biblioteca de Python que permite manipular archivos PDF.
+# Proporciona funcionalidades para leer, escribir y modificar documentos PDF,
+# lo que la convierte en una herramienta útil para tareas como la extracción de texto,
+# la fusión de archivos PDF, la división de páginas y la adición de anotaciones.
+
+# pypdf>=3.0.0
+# pypdf es una biblioteca de Python que permite trabajar con archivos PDF.
+# Proporciona funcionalidades para leer, escribir y manipular documentos PDF,
+# lo que la convierte en una herramienta útil para tareas como la extracción de texto,
+# la conversión de formatos y la creación de anotaciones. pypdf es conocida por su
+# rendimiento y eficiencia en el manejo de documentos grandes.
+
+# PyMuPDF==1.20.0
+# PyMuPDF es una biblioteca de Python que permite trabajar con archivos PDF y otros formatos
+# de documentos. Proporciona funcionalidades para leer, escribir y manipular documentos,
+# lo que la convierte en una herramienta útil para tareas como la extracción de texto,
+# la conversión de formatos y la creación de anotaciones. PyMuPDF es conocida por su
+# rendimiento y eficiencia en el manejo de documentos grandes.
 python-docx==0.8.11
 pytesseract==0.3.8
 
 # Análisis y clasificación semántica
 sentence-transformers==2.6.1
 transformers>=4.32.0
-torch==2.0.1
-torchvision==0.15.2
+torch>=2.0.0
+torchvision>=0.15.0
 sentencepiece==0.1.96
 scikit-learn==1.4.2
 
