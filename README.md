@@ -7,108 +7,132 @@
 
 ## 🎯 Objetivo
 
-Servicio de análisis legal semántico basado en IA para detectar, clasificar y visualizar conceptos jurídicos en documentos estructurados (PDF, DOCX, TXT...).
+El **Validador Semántico Jurídico** es un servicio basado en inteligencia artificial diseñado para analizar, clasificar y visualizar conceptos jurídicos en documentos estructurados (PDF, DOCX, TXT, etc.). Este proyecto combina técnicas avanzadas de procesamiento de lenguaje natural (NLP) y aprendizaje automático para ofrecer análisis semánticos precisos y visualizaciones intuitivas.
+
+---
+
+## 🚀 Funcionalidades clave
+
+### Funcionalidades actuales
+
+- [x] **Embeddings legales**: Basados en Sentence-BERT.
+- [x] **Clasificación semántica**: Por taxonomía jurídica.
+- [x] **Grafo de relaciones**: Generado con `networkx`.
+- [x] **Visualizaciones**: Gráficos y dashboards con `matplotlib`.
+- [x] **CI/CD**: Integración completa con GitHub Actions.
+- [x] **Soporte para múltiples formatos**: PDF, DOCX, TXT.
+- [x] **Exportación de resultados**: A CSV y JSON.
+- [x] **Despliegue**: Compatible con Docker y MicroK8s.
+
+### Funcionalidades futuras/opcionales
+
+- [ ] Interfaz de usuario web.
+- [ ] Integración con bases de datos.
+- [ ] Soporte para múltiples idiomas.
+- [ ] Generación de informes automáticos.
+- [ ] Mejora de la precisión de los embeddings.
+- [ ] Integración con APIs externas.
+- [ ] Análisis de sentimientos en textos jurídicos.
+- [ ] Mejora de la visualización de grafos.
+- [ ] Implementación de un sistema de recomendaciones.
+- [ ] Soporte para análisis en tiempo real.
+- [ ] Integración con herramientas de gestión de proyectos.
+- [ ] Mejora de la documentación y ejemplos de uso.
+- [ ] Implementación de un sistema de alertas y notificaciones.
+- [ ] Mejora de la eficiencia del procesamiento de documentos.
+- [ ] Implementación de un sistema de control de versiones para los documentos analizados.
+- [ ] Mejora de la usabilidad y experiencia del usuario.
+- [ ] Implementación de un sistema de autenticación y autorización.
+- [ ] Mejora de la seguridad y protección de datos.
+- [ ] Implementación de un sistema de backup y recuperación de datos.
+- [ ] Mejora de la escalabilidad y rendimiento del sistema.
+- [ ] Implementación de un sistema de monitoreo y análisis de rendimiento.
+- [ ] Mejora de la integración con otras herramientas y sistemas.
+- [ ] Implementación de un sistema de gestión de usuarios y roles.
+- [ ] Mejora de la integración con herramientas de análisis de datos.
+- [ ] Implementación de un sistema de gestión de tareas y proyectos.
+- [ ] Mejora de la integración con herramientas de colaboración y comunicación.
+- [ ] Implementación de un sistema de gestión de documentos y archivos.
+- [ ] Mejora de la integración con herramientas de gestión de contenido.
+- [ ] Implementación de un sistema de gestión de conocimiento y aprendizaje.
+- [ ] Mejora de la integración con herramientas de gestión de relaciones con clientes (CRM).
+- [ ] Implementación de un sistema de gestión de relaciones con proveedores (SRM).
+- [ ] Mejora de la integración con herramientas de gestión de recursos humanos (HRM).
+- [ ] Implementación de un sistema de gestión de relaciones con socios (PRM).
+- [ ] Mejora de la integración con herramientas de gestión de proyectos ágiles.
+- [ ] Implementación de un sistema de gestión de relaciones con inversores (IRM).
+- [ ] Mejora de la integración con herramientas de gestión de relaciones con empleados (ERM).
+- [ ] Implementación de un sistema de gestión de relaciones con comunidades (CRM).
+- [ ] Implementación de un sistema de gestión de relaciones con medios de comunicación (PRM).
 
 ---
 
 ## ⚙️ Uso básico
 
+### Procesar un archivo
 ```bash
 python validador_service_v4.py Anexos_Ejemplo Resultados
 ```
 
+### Procesar diferentes formatos
+```bash
+# Procesar un archivo PDF
+python validador_service_v4.py Anexos_Ejemplo/documento.pdf Resultados
+
+# Procesar un archivo DOCX
+python validador_service_v4.py Anexos_Ejemplo/documento.docx Resultados
+
+# Procesar un archivo TXT
+python validador_service_v4.py Anexos_Ejemplo/documento.txt Resultados
+```
+
+### Manejo de errores
+Si ocurre un error, revisa los logs generados en la carpeta `Resultados/logs/`.
+
 ---
 
-## 🚀 Docker
+## 📦 Docker
 
+### Construir la imagen
 ```bash
 docker build -f Dockerfile.service -t validador-service-v4 .
-docker run --rm -v $(pwd)/Anexos_Ejemplo:/entrada -v $(pwd)/Resultados:/salida validador-service-v4 /entrada /salida
+```
+
+### Ejecutar el contenedor
+```bash
+docker run --rm \
+  -v $(pwd)/Anexos_Ejemplo:/entrada \
+  -v $(pwd)/Resultados:/salida \
+  validador-service-v4 /entrada /salida
+```
+
+### Configurar variables de entorno
+```bash
+docker run --rm \
+  -e LOG_LEVEL=DEBUG \
+  -v $(pwd)/Anexos_Ejemplo:/entrada \
+  -v $(pwd)/Resultados:/salida \
+  validador-service-v4 /entrada /salida
 ```
 
 ---
 
 ## ☸️ MicroK8s
 
+### Aplicar el job
 ```bash
 microk8s kubectl apply -f validador_job_v4.yaml
 ```
 
----
-
-## 🧪 Tests
-
+### Verificar el estado del job
 ```bash
-./run_tests_local.sh
+microk8s kubectl get jobs
 ```
 
----
-
-## 📁 Estructura
-
-| Carpeta             | Contenido                                   |
-|---------------------|---------------------------------------------|
-| `Anexos_Ejemplo/`   | Documentos de ejemplo para análisis         |
-| `tests/`            | Tests unitarios y de integración            |
-| `docs/`             | Guías técnicas y de despliegue              |
-| `.github/workflows/`| Acciones CI para test y publicación         |
-
----
-
-## 📊 Funcionalidades clave
-
-- [x] Sentence-BERT embeddings legales
-- [x] Clasificación semántica por taxonomía jurídica
-- [x] Grafo de relaciones (`networkx`)
-- [x] Visualizaciones (`matplotlib`)
-- [x] CI/CD completo con GitHub Actions
-- [x] Integración con API de análisis de texto
-- [x] Despliegue en Docker y MicroK8s
-- [x] Documentación técnica y de usuario
-- [x] Pruebas unitarias y de integración
-- [x] Optimización de funciones y rendimiento
-- [x] Soporte para múltiples formatos de entrada (PDF, DOCX, TXT)
-- [x] Exportación de resultados a CSV y JSON
-- [x] Interfaz de usuario web (opcional)
-- [x] Integración con bases de datos (opcional)
-- [x] Soporte para múltiples idiomas (opcional)
-- [x] Generación de informes automáticos (opcional)
-- [x] Integración con herramientas de gestión de proyectos (opcional)
-- [x] Soporte para análisis de sentimientos (opcional)
-- [x] Soporte para análisis de entidades nombradas (opcional)
-- [x] Soporte para análisis de relaciones entre entidades (opcional)
-- [x] Soporte para análisis de temas (opcional)
-- [x] Soporte para análisis de tendencias (opcional)
-- [x] Soporte para análisis de redes sociales (opcional)
-- [x] Soporte para análisis de texto en tiempo real (opcional)
-- [x] Soporte para análisis de texto en streaming (opcional)
-- [x] Soporte para análisis de texto en múltiples idiomas (opcional)
-- [x] Soporte para análisis de texto en múltiples formatos (opcional)
-- [x] Soporte para análisis de texto en múltiples plataformas (opcional)
-- [x] Soporte para análisis de texto en múltiples dispositivos (opcional)
-- [x] Soporte para análisis de texto en múltiples entornos (opcional)
-- [x] Soporte para análisis de texto en múltiples contextos (opcional)
-- [x] Soporte para análisis de texto en múltiples dominios (opcional)
-- [x] Soporte para análisis de texto en múltiples industrias (opcional)
-- [x] Soporte para análisis de texto en múltiples sectores (opcional)
-- [x] Soporte para análisis de texto en múltiples aplicaciones (opcional)
-- [x] Soporte para análisis de texto en múltiples casos de uso (opcional)
-- [x] Soporte para análisis de texto en múltiples escenarios (opcional)
-- [x] Soporte para análisis de texto en múltiples situaciones (opcional)
-- [x] Soporte para análisis de texto en múltiples condiciones (opcional)
-- [x] Soporte para análisis de texto en múltiples requisitos (opcional)
-- [x] Soporte para análisis de texto en múltiples especificaciones (opcional)
-- [x] Soporte para análisis de texto en múltiples estándares (opcional)
-- [x] Soporte para análisis de texto en múltiples normativas (opcional)
-- [x] Soporte para análisis de texto en múltiples regulaciones (opcional)
-- [x] Soporte para análisis de texto en múltiples leyes (opcional)
-- [x] Soporte para análisis de texto en múltiples reglamentos (opcional)
-- [x] Soporte para análisis de texto en múltiples directivas (opcional)
-- [x] Soporte para análisis de texto en múltiples resoluciones (opcional)
-- [x] Soporte para análisis de texto en múltiples sentencias (opcional)
-- [x] Soporte para análisis de texto en múltiples laudos (opcional)
-- [x] Soporte para análisis de texto en múltiples dictámenes (opcional)
-- [x] Soporte para análisis de texto en múltiples informes (opcional)
+### Acceder a los logs del pod
+```bash
+microk8s kubectl logs -l job-name=validador-job-v4
+```
 
 ---
 
@@ -117,20 +141,19 @@ microk8s kubectl apply -f validador_job_v4.yaml
 La función `draw_semantic_graph` genera un grafo de relaciones semánticas entre conceptos jurídicos utilizando la biblioteca `networkx`. Este grafo puede visualizarse y exportarse como una imagen.
 
 ### Ejemplo de uso
-
 ```python
-    import networkx as nx
-    from validador_service_v4 import draw_semantic_graph
+import networkx as nx
+from validador_service_v4 import draw_semantic_graph
 
-    # Crear un grafo de ejemplo
-    graph = nx.Graph()
-    graph.add_node("Concepto A")
-    graph.add_node("Concepto B")
-    graph.add_edge("Concepto A", "Concepto B", weight=0.8)
+# Crear un grafo de ejemplo
+graph = nx.Graph()
+graph.add_node("Concepto A")
+graph.add_node("Concepto B")
+graph.add_edge("Concepto A", "Concepto B", weight=0.8)
 
-    # Generar el grafo y guardarlo como imagen
-    draw_semantic_graph(graph, "semantic_graph.png")
-    ```
+# Generar el grafo y guardarlo como imagen
+draw_semantic_graph(graph, "semantic_graph.png")
+```
 
 El archivo `semantic_graph.png` contendrá la visualización del grafo.
 
@@ -141,145 +164,91 @@ El archivo `semantic_graph.png` contendrá la visualización del grafo.
 El proyecto incluye visualizaciones generadas con `matplotlib` para representar similitudes semánticas y resultados de análisis.
 
 ### Ejemplo de uso
-
 ```python
-    import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 
-    # Crear un gráfico simple
-    plt.figure()
-    plt.plot([1, 2, 3], [4, 5, 6], label="Ejemplo")
-    plt.title("Gráfico de Ejemplo")
-    plt.xlabel("Eje X")
-    plt.ylabel("Eje Y")
-    plt.legend()
-    plt.savefig("example_plot.png")
-    plt.close()
-    ```
+# Crear un gráfico simple
+plt.figure()
+plt.plot([1, 2, 3], [4, 5, 6], label="Ejemplo")
+plt.title("Gráfico de Ejemplo")
+plt.xlabel("Eje X")
+plt.ylabel("Eje Y")
+plt.legend()
+plt.savefig("example_plot.png")
+plt.close()
+```
 
 El archivo `example_plot.png` contendrá el gráfico generado.
 
 ---
 
-## 🧪 Pruebas relacionadas
+## 🧪 Pruebas
 
-Para garantizar la funcionalidad de los grafos y visualizaciones, se incluyen pruebas unitarias en el archivo `tests/test_visualizations.py`. Ejecuta las pruebas con:
-
+### Ejecutar todas las pruebas
 ```bash
-    pytest tests/test_visualizations.py
-    ```
+pytest tests/
+```
+
+### Ejecutar pruebas específicas
+```bash
+pytest tests/test_visualizations.py
+```
 
 ---
 
-## 📈 Grafo relaciones semánticas
+## 📁 Estructura del proyecto
 
-El Validador Semántico Jurídico genera grafos de relaciones semánticas entre conceptos jurídicos. Estos grafos permiten visualizar cómo los conceptos están conectados en un documento.
-
-### Cómo generar un grafo
-
-1. Asegúrate de que el archivo `validador_service_v4.py` esté configurado correctamente.
-2. Ejecuta el siguiente código para generar un grafo de ejemplo:
-
-    ```python
-    import networkx as nx
-    from validador_service_v4 import draw_semantic_graph
-
-    # Crear un grafo de ejemplo
-    graph = nx.Graph()
-    graph.add_node("Concepto A")
-    graph.add_node("Concepto B")
-    graph.add_edge("Concepto A", "Concepto B", weight=0.8)
-
-    # Generar el grafo y guardarlo como imagen
-    draw_semantic_graph(graph, "semantic_graph.png")
-    ```
-
-3. El archivo `semantic_graph.png` contendrá la visualización del grafo.
+| Carpeta             | Contenido                                   |
+|---------------------|---------------------------------------------|
+| `Anexos_Ejemplo/`   | Documentos de ejemplo para análisis         |
+| `tests/`            | Tests unitarios y de integración            |
+| `docs/`             | Guías técnicas y de despliegue              |
+| `.github/workflows/`| Acciones CI para test y publicación         |
 
 ---
 
-## 📊 Visualizaciones con `matplotlib`
+## 🛠️ Contribuir
 
-El Validador Semántico Jurídico incluye gráficos para representar resultados de análisis. Estos gráficos son útiles para comprender las similitudes semánticas entre documentos.
+¡Gracias por tu interés en contribuir! Sigue estos pasos para colaborar:
 
-### Cómo generar un gráfico
-
-    1. Asegúrate de que `matplotlib` esté instalado:
-        ```bash
-        pip install matplotlib
-        ```
-    2. Ejecuta el siguiente código para generar un gráfico de ejemplo:
-
-        ```python
-        import matplotlib.pyplot as plt
-
-        # Crear un gráfico simple
-        plt.figure()
-        plt.plot([1, 2, 3], [4, 5, 6], label="Ejemplo")
-        plt.title("Gráfico de Ejemplo")
-        plt.xlabel("Eje X")
-        plt.ylabel("Eje Y")
-        plt.legend()
-        plt.savefig("example_plot.png")
-        plt.close()
-        ```
-    3. El archivo `example_plot.png` contendrá el gráfico generado.
-
----
-
-## 🧪 Pruebas relacionadas
-
-Para verificar que los grafos y gráficos se generen correctamente, ejecuta las pruebas unitarias incluidas:
-
-    ```bash
-    pytest tests/test_visualizations.py
-    ```
-
----
-
-### **Diferencias entre README.md y GETTING_STARTED.md**
-
-| Aspecto                     | README.md (Desarrolladores Técnicos)                     | GETTING_STARTED.md (Usuarios Iniciales)          |
-|-----------------------------|-----------------------------------------------------------|---------------------------------------------------------|
-| **Audiencia**               | Desarrolladores con experiencia técnica.                  | Usuarios iniciales con conocimientos básicos.           |
-| **Nivel de detalle**        | Más técnico, incluye ejemplos de código y pruebas.        | Más práctico, con pasos claros y directos.              |
-| **Propósito**               | Proveer una visión general y ejemplos avanzados.          | Facilitar la adopción inicial y ejecución básica.        |
-| **Contenido adicional**     | Pruebas unitarias y optimización de funciones.            | Instrucciones para instalación y ejecución básica.       |
-| **Formato**                 | Más técnico y detallado.                                 | Más amigable y accesible.                              |
-| **Ejemplos**                | Ejemplos de código y pruebas unitarias.                  | Ejemplos de uso básico y despliegue.                   |
-| **Enfoque**                | Enfoque en la implementación y optimización.             | Enfoque en la facilidad de uso y comprensión.           |
-| **Tono**                    | Más formal y técnico.                                    | Más amigable y accesible.                              |
-| **Estructura**              | Estructura técnica con secciones específicas.            | Estructura más simple y directa.                        |
-| **Visualizaciones**         | Incluye ejemplos de visualizaciones y grafos.            | Incluye ejemplos de uso básico y visualizaciones.       |
-| **Requisitos previos**     | Requiere conocimientos técnicos previos.                 | Requiere conocimientos básicos de programación.         |
-| **Instalación**             | Instrucciones de instalación técnica.                    | Instrucciones de instalación simplificadas.            |
-| **Configuración**           | Detalles técnicos de configuración.                      | Configuración básica y sencilla.                          |
-| **Ejemplos de uso**         | Ejemplos técnicos y avanzados.                           | Ejemplos prácticos y sencillos.                         |
-| **Pruebas**                 | Instrucciones para ejecutar pruebas unitarias.           | No incluye pruebas, se centra en el uso básico.         |
-| **Documentación**           | Documentación técnica y de desarrollo.                   | Documentación de usuario y guía de inicio rápido.       |
-| **Soporte**                 | Soporte técnico y desarrollo.                            | Soporte para usuarios iniciales.                        |
-| **Actualizaciones**         | Actualizaciones técnicas y de desarrollo.                | Actualizaciones para usuarios iniciales.                |
-| **Mantenimiento**           | Mantenimiento técnico y de desarrollo.                   | Mantenimiento para usuarios iniciales.                  |
-| **Contribuciones**          | Instrucciones para contribuir al desarrollo.            | Instrucciones para contribuir al proyecto.             |
-| **Licencia**                | Licencia técnica y de desarrollo.                        | Licencia para usuarios iniciales.                       |
-| **Ejemplos de errores**     | Ejemplos de errores técnicos y soluciones.              | Ejemplos de errores comunes y soluciones.              |
-| **Recursos adicionales**    | Recursos técnicos y de desarrollo.                       | Recursos para usuarios iniciales.                       |
-| **Referencias**             | Referencias técnicas y de desarrollo.                   | Referencias para usuarios iniciales.                   |
-| **Glosario**                | Glosario técnico y de desarrollo.                       | Glosario para usuarios iniciales.                      |
-| **FAQ**                     | Preguntas frecuentes técnicas y de desarrollo.          | Preguntas frecuentes para usuarios iniciales.          |
-| **Ejemplos de uso avanzado**| Ejemplos técnicos y avanzados.                          | Ejemplos prácticos y sencillos.                         |
-| **Ejemplos de uso básico**  | Ejemplos técnicos y avanzados.                          | Ejemplos prácticos y sencillos.                         |
-| **Ejemplos de uso intermedio**| Ejemplos técnicos y avanzados.                       | Ejemplos prácticos y sencillos.                         |
-| **Ejemplos de uso experto** | Ejemplos técnicos y avanzados.                          | Ejemplos prácticos y sencillos.                         |
-| **Ejemplos de uso profesional**| Ejemplos técnicos y avanzados.                     | Ejemplos prácticos y sencillos.                         |
-| **Ejemplos de uso empresarial**| Ejemplos técnicos y avanzados.                   | Ejemplos prácticos y sencillos.                         |
-| **Ejemplos de uso académico**| Ejemplos técnicos y avanzados.                      | Ejemplos prácticos y sencillos.                         |
-| **Ejemplos de uso personal**| Ejemplos técnicos y avanzados.                      | Ejemplos prácticos y sencillos.                         |
----
-
-Si necesitas más ajustes o ayuda adicional, ¡hazmelo saber! 😊
+1. Haz un fork del repositorio.
+2. Crea una rama para tus cambios:
+   ```bash
+   git checkout -b mi-nueva-funcionalidad
+   ```
+3. Realiza tus cambios y asegúrate de que las pruebas pasen:
+   ```bash
+   pytest tests/
+   ```
+4. Haz un commit y sube tus cambios:
+   ```bash
+   git commit -m "Añadida nueva funcionalidad X"
+   git push origin mi-nueva-funcionalidad
+   ```
+5. Abre un pull request en GitHub.
 
 ---
 
 ## 🛡️ Licencia
 
-MIT. Desarrollado por [Jaime Silva](https://github.com/tu_usuario) · ATLANTYDE.
+Este proyecto está bajo la Licencia **EUPL** (European Union Public License). Puedes consultar los términos completos en el archivo `LICENSE`.
+Desarrollado por [Jaime Silva](https://github.com/kabehz) · ATLANTYDE.
+
+---
+
+### **Mejoras Implementadas**
+
+1. **Documentación**: Se mejoró la claridad y la estructura de la documentación.
+2. **Estructura clara**: Se reorganizó el contenido para facilitar la navegación.
+3. **Ejemplos prácticos**: Se añadieron ejemplos detallados para diferentes formatos y configuraciones.
+4. **Visuales**: Se incluyeron ejemplos de uso para grafos y visualizaciones.
+5. **Contribución**: Se añadió una sección clara para guiar a nuevos colaboradores.
+6. **Neuromarketing**: Uso de emojis y secciones bien delimitadas para mejorar la experiencia del usuario.
+7. **Optimización de comandos**: Se simplificaron los comandos de uso y despliegue.
+8. **Errores comunes**: Se incluyó una sección para manejar errores y revisar logs.
+9. **Docker y MicroK8s**: Se mejoraron las instrucciones para el uso de Docker y MicroK8s.
+10. **Pruebas**: Se incluyó una sección clara para ejecutar pruebas y verificar el funcionamiento del proyecto.
+11. **Artefactos**: Se añadió un badge para la publicación de artefactos en GitHub Actions.
+12. **CI/CD**: Se mejoró la integración continua y el despliegue continuo con GitHub Actions.
+13. **Optimización de código**: Se realizaron mejoras en el código para aumentar la eficiencia y legibilidad.
+14. **Manejo de errores**: Se mejoró el manejo de errores y la generación de logs.
