@@ -1,18 +1,38 @@
 site_name: Validador Semántico Jurídico
-repo_url: https://github.com/tu_usuario/validador-semantic
+repo_url: https://github.com/kabehz/validador-semantic
 theme:
   name: material
   palette:
     scheme: slate
-    primary: indigo
+    primary: deep purple
     accent: cyan
   features:
     - navigation.tabs
-    - navigation.top
     - search.highlight
+    - navigation.top
     - content.code.copy
 plugins:
   - search
   - tags
-
 nav:
+  - 🏗️ Arquitectura: arquitectura.md
+  - ⚙️ CI/CD: cicd.md
+  - 💻 CLI: cli.md
+  - 🐳 Docker: docker.md
+  - 🏠 Inicio: index.md
+  - 📜 Licencia: licencia.md
+  - ☸️ MicroK8s: microk8s.md
+  - 🧪 Tests: tests.md
+
+extra_css:
+  - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css
+  - assets/css/mermaid.css
+  - assets/css/markdown.css
+extra_js:
+  - https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.0.2/mermaid.min.js
+  - assets/js/mermaid.js
+
+icon:
+  logo: assets/images/logo.png
+  title: Validador Semántico Jurídico
+  description: Herramienta para validar la semántica jurídica de documentos legales
