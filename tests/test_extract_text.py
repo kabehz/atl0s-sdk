@@ -2,55 +2,46 @@ from PyPDF2 import PdfReader
 from docx import Document
 from PIL import Image
 import pytesseract
+import unittest
+from pathlib import Path
+from validador_service_v4 import extract_text
 
-def extract_text_from_pdf(file_path):
-    """Extrae texto de un archivo PDF."""
-    try:
-        reader = PdfReader(file_path)
-        text = ""
-        for page in reader.pages:
-            text += page.extract_text()
-        return text
-    except Exception as e:
-        return f"Error al procesar el PDF: {e}"
+class TestExtractText(unittest.TestCase):
 
-def extract_text_from_docx(file_path):
-    """Extrae texto de un archivo DOCX."""
-    try:
-        doc = Document(file_path)
-        text = "\n".join([paragraph.text for paragraph in doc.paragraphs])
-        return text
-    except Exception as e:
-        return f"Error al procesar el DOCX: {e}"
+    def setUp(self):
+        self.pdf_file = Path(__file__).parent / "sample.pdf"
+        self.docx_file = Path(__file__).parent / "sample.docx"
+        self.image_file = Path(__file__).parent / "sample.png"
+        self.unsupported_file = Path(__file__).parent / "sample.xlsx"
 
-def extract_text_from_image(image_path):
-    """Extrae texto de una imagen usando OCR."""
-    try:
-        text = pytesseract.image_to_string(Image.open(image_path))
-        return text
-    except Exception as e:
-        return f"Error al procesar la imagen: {e}"
+        # Create dummy files for testing
+        self.pdf_file.write_text("Dummy PDF content")
+        self.docx_file.write_text("Dummy DOCX content")
+        self.image_file.write_text("Dummy Image content")
+        self.unsupported_file.write_text("Dummy Unsupported content")
+
+    def tearDown(self):
+        # Clean up dummy files
+        self.pdf_file.unlink()
+        self.docx_file.unlink()
+        self.image_file.unlink()
+        self.unsupported_file.unlink()
+
+    def test_extract_text_pdf(self):
+        text = extract_text(self.pdf_file)
+        self.assertIn("Dummy PDF content", text)
+
+    def test_extract_text_docx(self):
+        text = extract_text(self.docx_file)
+        self.assertIn("Dummy DOCX content", text)
+
+    def test_extract_text_image(self):
+        text = extract_text(self.image_file)
+        self.assertIn("Dummy Image content", text)
+
+    def test_extract_text_unsupported(self):
+        with self.assertRaises(ValueError):
+            extract_text(self.unsupported_file)
 
 if __name__ == "__main__":
-    # Archivos de prueba
-    pdf_file = "example.pdf"
-    docx_file = "example.docx"
-    image_file = "example.png"
-
-    print("=== Test de extracción de texto ===\n")
-
-    # Test PDF
-    print(f"Probando extracción de texto desde PDF: {pdf_file}")
-    pdf_text = extract_text_from_pdf(pdf_file)
-    print(f"Texto extraído:\n{pdf_text}\n")
-
-    # Test DOCX
-    print(f"Probando extracción de texto desde DOCX: {docx_file}")
-    docx_text = extract_text_from_docx(docx_file)
-    print(f"Texto extraído:\n{docx_text}\n")
-
-    # Test Imagen
-    print(f"Probando extracción de texto desde Imagen: {image_file}")
-    image_text = extract_text_from_image(image_file)
-    print(f"Texto extraído:\n{image_text}\n")
-    
+    unittest.main()

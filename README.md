@@ -145,6 +145,22 @@ microk8s kubectl logs -l job-name=validador-job-v4
 
 ---
 
+## 📝 Función `extract_text`
+
+La función `extract_text` permite extraer texto de archivos en diferentes formatos (PDF, DOCX, imágenes, etc.).
+
+### Ejemplo de uso
+
+```python
+from validador_service_v4 import extract_text
+from pathlib import Path
+
+file_path = Path("Anexos_Ejemplo/documento.pdf")
+text = extract_text(file_path)
+print(text)
+
+---
+
 ## 📈 Grafo de relaciones semánticas
 
 La función `draw_semantic_graph` genera un grafo de relaciones semánticas entre conceptos jurídicos utilizando la biblioteca `networkx`. Este grafo puede visualizarse y exportarse como una imagen.

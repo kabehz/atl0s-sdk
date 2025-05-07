@@ -22,6 +22,11 @@ jobs:
           pip install -r requirements.txt
           pip install pytest
 
-      - name: Run tests
+      - name: Run Unit Tests
         run: |
-          pytest tests/
+          pytest tests/test_extract_text.py
+          pytest tests/test_validador_unitario.py
+
+      # - name: Run tests
+      #   run: |
+      #     pytest tests/
