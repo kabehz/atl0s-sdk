@@ -80,7 +80,7 @@ def extract_text(file_path):
         return extract_text_from_image(file_path)
     else:
         raise ValueError(f"Extensión de archivo no soportada: {ext}")
-
+    
 ## Semantic Analysis
 
 def semantic_analysis(text, keywords):

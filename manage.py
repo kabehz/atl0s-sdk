@@ -19,8 +19,10 @@ def main():
 
     cmd = sys.argv[1]
 
-    if cmd == "test":
+    if cmd == "local_test":
         run("./run_tests_local.sh", "Unit and Integration Tests")
+    elif cmd == "test":
+        run("pytest tests/", "Unit and Integration Tests")
     elif cmd == "analyze":
         run("python validador_service_v4.py ./Anexos_Ejemplo ./Resultados", "Document Analysis")
     elif cmd == "docker":

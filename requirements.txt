@@ -1,7 +1,23 @@
-# Requisitos de instalación para el proyecto Legal Advisor Validator
+# Requisitos de instalación para el proyecto Legal Advisor Validator:
+#    📦 Requisitos de instalación (numpy)
+#    📜 Procesamiento de documentos (PyPDF2, python-docx, pytesseract)
+#    📚 Documentación y requisitos (mkdocs, mkdocs-material, mkdocs-extensions)
+#    📊 Análisis y clasificación semántica (sentence-transformers, transformers, torch, scikit-learn)
+#    🧠 Procesamiento lingüístico (spaCy, nltk)
+#    🧩 Gestión de taxonomías y grafos (networkx, pyyaml)
+#    🧼 Visualización e interfaces enriquecidas (matplotlib, rich)
+#    ⚙️ Progreso de procesos (tqdm)
+#    🗂️ Manipulación de datos (pandas)
+#    ✅ Validación de datos (pydantic)
+#    🧪 Testing y desarrollo (pytest, pytest-cov, pytest-mock, pytest-asyncio, pytest-django, pytest-flask, pytest-benchmark, pytest-html)
 
-# Nuevas dependencias
+
 numpy==1.24.0
+# Biblioteca de Python ampliamente utilizada para computación numérica.
+# Proporciona soporte para trabajar con arreglos y matrices multidimensionales, junto con
+# una amplia colección de funciones matemáticas para realizar operaciones rápidas y eficientes
+# sobre estos datos. Es fundamental en el ecosistema de Python para tareas científicas, análisis
+# de datos y aprendizaje automático.
 
 # Documentación & Requisitos
 mkdocs==1.6.1
@@ -21,7 +37,7 @@ pyyaml==6.0.1
 # Procesamiento de documentos
 #extract-msg==0.29.3
 #textract==1.6.4
-PyPDF2==1.26.0
+PyPDF2>=3.0.1
 python-docx==0.8.11
 pytesseract==0.3.8
 
@@ -54,11 +70,14 @@ pandas==2.2.2
 # Validación de datos
 pydantic==1.10.7
 
-
-
-# requirements.txt actualizad:
-#    📊 Análisis y clasificación semántica (scikit-learn, sentence-transformers)
-#    🧠 Procesamiento lingüístico (spaCy, nltk)
-#    🧩 Gestión de taxonomías y grafos (networkx, pyyaml)
-#    🧼 Visualización e interfaces enriquecidas (matplotlib, rich)
-#    ⚙️ Progreso de procesos (tqdm)
+# Testing y desarrollo
+pytest==8.3.5
+pytest-cov==4.1.0
+pytest-mock==3.11.0
+pytest-async==0.22.0
+pytest-asyncio==0.21.0
+pytest-django==4.5.2
+pytest-flask==1.2.0
+pytest-asyncio==0.21.0
+pytest-benchmark==3.4.1
+pytest-html==3.2.0
