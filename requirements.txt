@@ -44,7 +44,7 @@ PyPDF2>=3.0.1
 # lo que la convierte en una herramienta útil para tareas como la extracción de texto,
 # la fusión de archivos PDF, la división de páginas y la adición de anotaciones.
 
-# pypdf>=3.0.0
+pypdf>=3.0.0
 # pypdf es una biblioteca de Python que permite trabajar con archivos PDF.
 # Proporciona funcionalidades para leer, escribir y manipular documentos PDF,
 # lo que la convierte en una herramienta útil para tareas como la extracción de texto,
@@ -94,6 +94,7 @@ pytest==8.3.5
 pytest-cov==4.1.0
 pytest-mock==3.11.0
 pytest-async
+pytesseract==0.3.8
 # pytest-asyncio==0.21.0
 # pytest-django==4.5.2
 # pytest-flask==1.2.0
