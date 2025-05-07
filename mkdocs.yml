@@ -1,0 +1,18 @@
+site_name: Validador Semántico Jurídico
+repo_url: https://github.com/tu_usuario/validador-semantic
+theme:
+  name: material
+  palette:
+    scheme: slate
+    primary: indigo
+    accent: cyan
+  features:
+    - navigation.tabs
+    - navigation.top
+    - search.highlight
+    - content.code.copy
+plugins:
+  - search
+  - tags
+
+nav:

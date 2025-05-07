@@ -1,0 +1,26 @@
+site_name: Validador Semántico Jurídico
+repo_url: https://github.com/tu_usuario/validador-semantic
+theme:
+  name: material
+  palette:
+    scheme: slate
+    primary: deep purple
+    accent: cyan
+  features:
+    - navigation.tabs
+    - search.highlight
+    - navigation.top
+    - content.code.copy
+plugins:
+  - search
+  - tags
+
+nav:
+  - Arquitectura: arquitectura.md
+  - Cicd: cicd.md
+  - Cli: cli.md
+  - Docker: docker.md
+  - Index: index.md
+  - Licencia: licencia.md
+  - Microk8S: microk8s.md
+  - Tests: tests.md

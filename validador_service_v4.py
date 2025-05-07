@@ -1,0 +1,129 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+import os
+import sys
+import json
+import hashlib
+from pathlib import Path
+import textract
+import pandas as pd
+import matplotlib.pyplot as plt
+import networkx as nx
+import nltk
+from sentence_transformers import SentenceTransformer, util
+from tqdm import tqdm
+from rich import print
+from rich.table import Table
+
+nltk.download('punkt')
+MODEL = SentenceTransformer('all-MiniLM-L6-v2')
+
+TAXONOMY_PATH = 'legal_semantic_taxon_v2_merged.json'
+SUPPORTED_EXTENSIONS = ['.pdf', '.docx', '.odt', '.txt', '.rtf']
+
+def load_taxonomy(path=TAXONOMY_PATH):
+    with open(path, encoding='utf-8') as f:
+        tax = json.load(f)
+    flat = [item for sub in tax.values() for item in sub]
+    return tax, list(set(flat))
+
+def hash_file(path, algorithm='sha256'):
+    h = hashlib.new(algorithm)
+    with open(path, 'rb') as f:
+        for block in iter(lambda: f.read(4096), b""):
+            h.update(block)
+    return h.hexdigest()
+
+def extract_text(path):
+    return textract.process(str(path)).decode('utf-8', errors='ignore')
+
+def semantic_analysis(text, keywords):
+    sentences = nltk.sent_tokenize(text)
+    text_vecs = MODEL.encode(sentences, convert_to_tensor=True)
+    keyword_vecs = MODEL.encode(keywords, convert_to_tensor=True)
+    sim_matrix = util.cos_sim(text_vecs, keyword_vecs)
+    scores = sim_matrix.max(dim=0).values
+    return [(kw, float(scores[i])) for i, kw in enumerate(keywords) if scores[i] > 0.3]
+
+def draw_semantic_graph(matches, output_path):
+    G = nx.Graph()
+    for kw, score in matches:
+        G.add_edge("DOCUMENTO", kw, weight=score)
+    pos = nx.spring_layout(G)
+    weights = [G[u][v]['weight'] * 5 for u, v in G.edges()]
+    nx.draw(G, pos, with_labels=True, node_color='skyblue', edge_color='gray', width=weights)
+    plt.title("Red Semántica del Documento")
+    plt.savefig(output_path)
+    plt.close()
+
+def recursive_scan(directory):
+    return [p for p in Path(directory).rglob("*") if p.is_file() and p.suffix.lower() in SUPPORTED_EXTENSIONS]
+
+def analyze_documents(input_folder, output_folder=None):
+    if output_folder is None:
+        output_folder = Path(input_folder)
+    else:
+        output_folder = Path(output_folder)
+        output_folder.mkdir(parents=True, exist_ok=True)
+
+    taxonomy, keywords = load_taxonomy()
+    files = recursive_scan(input_folder)
+    resultados = []
+
+    print(f"[cyan]🔍 Analizando {len(files)} archivos en: {input_folder}")
+    for file in tqdm(files, desc="Procesando documentos"):
+        try:
+            text = extract_text(file)
+            matches = semantic_analysis(text, keywords)
+            sim = sum([m[1] for m in matches]) / len(matches) if matches else 0
+            graph_out = output_folder / f"{file.stem}_semantico.png"
+            draw_semantic_graph(matches, graph_out)
+
+            resultados.append({
+                "archivo": str(file.relative_to(input_folder)),
+                "hash": hash_file(file),
+                "categorias": ", ".join([m[0] for m in matches]),
+                "similitud_promedio": round(sim, 3),
+                "extracto": text[:300].replace("\n", " ")
+            })
+        except Exception as e:
+            resultados.append({
+                "archivo": str(file.relative_to(input_folder)),
+                "hash": "ERROR",
+                "categorias": "ERROR",
+                "similitud_promedio": 0,
+                "extracto": str(e)
+            })
+
+    df = pd.DataFrame(resultados)
+    result_path = output_folder / "resultado_validador.csv"
+    df.to_csv(result_path, index=False)
+
+    table = Table(title="Resumen del Análisis", show_lines=True)
+    table.add_column("Archivo", style="cyan", no_wrap=True)
+    table.add_column("Similitud", justify="right")
+    table.add_column("Categorías", overflow="fold")
+    for r in resultados:
+        table.add_row(r['archivo'], str(r['similitud_promedio']), r['categorias'])
+    print(table)
+
+    if len(resultados) > 1:
+        df.plot(x="archivo", y="similitud_promedio", kind="barh", figsize=(10, 6), legend=False)
+        plt.title("Similitud Semántica por Documento")
+        plt.grid(True)
+        plt.tight_layout()
+        plot_path = output_folder / "dashboard_validador.png"
+        plt.savefig(plot_path)
+        print(f"[green]📊 Dashboard guardado: {plot_path}")
+
+    print(f"[green]✅ Resultado general guardado en: {result_path}")
+    return result_path
+
+if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        print("❌ Debes indicar la carpeta de entrada.")
+        sys.exit(1)
+    input_folder = sys.argv[1]
+    output_folder = sys.argv[2] if len(sys.argv) > 2 else None
+    analyze_documents(input_folder, output_folder)

@@ -1,0 +1,31 @@
+mkdocs-material
+textract==1.6.5
+pandas==2.2.2
+scikit-learn==1.4.2
+spacy==3.7.2
+nltk==3.8.1
+networkx==3.3
+tqdm==4.66.2
+rich==13.7.1
+pyyaml==6.0.1
+matplotlib==3.8.4
+sentence-transformers==2.6.1
+transformers==4.30.2
+torch==2.0.1
+torchvision==0.15.2
+sentencepiece==0.1.96
+pydantic==1.10.7
+
+
+
+# requirements.txt actualizad:
+
+#    📊 Análisis y clasificación semántica (scikit-learn, sentence-transformers)
+
+#    🧠 Procesamiento lingüístico (spaCy, nltk)
+
+#    🧩 Gestión de taxonomías y grafos (networkx, pyyaml)
+
+#    🧼 Visualización e interfaces enriquecidas (matplotlib, rich)
+
+#    ⚙️ Progreso de procesos (tqdm)
