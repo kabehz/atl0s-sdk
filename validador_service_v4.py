@@ -160,3 +160,4 @@ if __name__ == "__main__":
     input_folder = sys.argv[1]
     output_folder = sys.argv[2] if len(sys.argv) > 2 else None
     analyze_documents(input_folder, output_folder)
+    
