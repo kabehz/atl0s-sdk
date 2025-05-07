@@ -6,7 +6,6 @@ import sys
 import json
 import hashlib
 from pathlib import Path
-# import textract
 import pandas as pd
 import matplotlib.pyplot as plt
 import networkx as nx
@@ -27,7 +26,8 @@ from rich.live import Live
 from rich.text import Text
 import warnings
 warnings.filterwarnings("ignore", category=UserWarning, module="matplotlib")
-
+ 
+# import textract
 
 nltk.download('punkt')
 MODEL = SentenceTransformer('all-MiniLM-L6-v2')
@@ -49,10 +49,10 @@ def hash_file(path, algorithm='sha256'):
     return h.hexdigest()
 
 
-## Text Extraction
 # def extract_text(path):
-#     return textract.process(str(path)).decode('utf-8', errors='ignore')
+#      return textract.process(str(path)).decode('utf-8', errors='ignore')
 
+## Text Extraction
 def extract_text_from_pdf(file_path):
     reader = PdfReader(file_path)
     text = ""
@@ -68,6 +68,18 @@ def extract_text_from_docx(file_path):
 def extract_text_from_image(image_path):
     text = pytesseract.image_to_string(Image.open(image_path))
     return text
+
+def extract_text(file_path):
+    """Extrae texto de un archivo según su tipo."""
+    ext = file_path.suffix.lower()
+    if ext == ".pdf":
+        return extract_text_from_pdf(file_path)
+    elif ext == ".docx":
+        return extract_text_from_docx(file_path)
+    elif ext in [".png", ".jpg", ".jpeg", ".tiff", ".bmp"]:
+        return extract_text_from_image(file_path)
+    else:
+        raise ValueError(f"Extensión de archivo no soportada: {ext}")
 
 ## Semantic Analysis
 
@@ -107,6 +119,7 @@ def analyze_documents(input_folder, output_folder=None):
     print(f"[cyan]🔍 Analizando {len(files)} archivos en: {input_folder}")
     for file in tqdm(files, desc="Procesando documentos"):
         try:
+            # Usar la función extract_text corregida
             text = extract_text(file)
             matches = semantic_analysis(text, keywords)
             sim = sum([m[1] for m in matches]) / len(matches) if matches else 0
