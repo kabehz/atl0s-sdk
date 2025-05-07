@@ -1,6 +1,13 @@
 import unittest
 from pathlib import Path
+import sys
+from pathlib import Path
+
+# Añadir el directorio raíz del proyecto al PYTHONPATH
+sys.path.append(str(Path(__file__).resolve().parent.parent))
+# from validador_service_v4 import analyze_documents
 from validador_service_v4 import analyze_documents
+#from validador_service_v4 import analyze_documents
 
 class TestValidadorIntegracion(unittest.TestCase):
 

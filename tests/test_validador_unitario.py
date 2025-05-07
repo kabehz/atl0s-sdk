@@ -1,6 +1,11 @@
 import unittest
+import sys
 from pathlib import Path
+
+# Añadir el directorio raíz del proyecto al PYTHONPATH
+sys.path.append(str(Path(__file__).resolve().parent.parent))
 from validador_service_v4 import hash_file, load_taxonomy, semantic_analysis
+
 
 class TestValidadorSemantico(unittest.TestCase):
 

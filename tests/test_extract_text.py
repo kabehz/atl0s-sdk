@@ -4,9 +4,13 @@ from docx import Document
 from PIL import Image
 import pytesseract
 import unittest
+import sys
 from pathlib import Path
-from validador_service_v4 import extract_text
 
+# Añadir el directorio raíz del proyecto al PYTHONPATH
+sys.path.append(str(Path(__file__).resolve().parent.parent))
+
+from validador_service_v4 import extract_text
 
 
 
