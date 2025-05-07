@@ -32,7 +32,7 @@ class TestExtractText(unittest.TestCase):
         doc.save(self.docx_file)
 
         img = Image.new("RGB", (100, 100), color="white")
-        draw = ImageDraw.Draw(img)
+        draw = Image.Draw(img)
         draw.text((10, 10), "Dummy Image content", fill="black")
         img.save(self.image_file)
         img.save(self.image_file)
