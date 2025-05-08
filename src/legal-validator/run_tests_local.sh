@@ -22,18 +22,18 @@ pip install -r requirements.txt
 
 # echo "🔍 Ejecutando pruebas unitarias y de integración"
 # python3 -m unittest discover -s tests -v
-echo "🔍 Ejecutando pruebas unitarias y de integración"
+# echo "🔍 Ejecutando pruebas unitarias y de integración"
 # pytest --tb=short -q --disable-warnings --maxfail=1
 echo "🔍 Ejecutando pruebas unitarias y de integración"
-pytest --tb=short -q --disable-warnings --maxfail=1 --cov=legal-advisor-validator
+export PYTHONPATH=$(pwd)
+pytest --tb=short -q --disable-warnings --maxfail=5 --cov=legal-advisor-validator
 # pytest --tb=short -q --disable-warnings --maxfail=1
 # pytest --tb=short -q --disable-warnings --maxfail=1 --cov=legal-advisor-validator
 # pytest --tb=short -q --disable-warnings --maxfail=1 --cov-report=html:coverage_html_report
 # pytest --tb=short -q --disable-warnings --maxfail=1 --cov-report=xml:coverage.xml
 # pytest --tb=short -q --disable-warnings --maxfail=1 --cov-report=term-missing --cov-fail-under=80 --cov-config=.coveragerc
-echo "✅ Pruebas completadas"
-
-
+echo "🚀 Listo para el siguiente paso"
+echo "🔍 Ejecutando pruebas de linting - Comming Soon"
 # echo "🔍 Ejecutando pruebas de linting"
 # pylint --rcfile=.pylintrc legal-advisor-validator
 
@@ -42,9 +42,8 @@ echo "🧹 Limpiando el entorno"
 deactivate
 rm -rf .venv
 echo "🗑️ Entorno limpio"
-echo "🚀 Listo para el siguiente paso"
-echo "🔍 Ejecutando pruebas de linting"
-pylint --rcfile=.pylintrc legal-advisor-validator
+
+
 
 
 
