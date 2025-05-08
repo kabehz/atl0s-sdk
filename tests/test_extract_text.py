@@ -11,7 +11,6 @@ sys.path.append(str(Path(__file__).resolve().parent.parent))
 
 from validador_service_v4 import extract_text
 
-
 class TestExtractText(unittest.TestCase):
     def setUp(self):
         self.anexos_dir = Path(__file__).parent / "anexos"
@@ -34,10 +33,10 @@ class TestExtractText(unittest.TestCase):
         doc.save(self.docx_file)
 
         # Crear una imagen válida
-        img = Image.new("RGB", (100, 100), color="white")
-        draw = ImageDraw.Draw(img)
-        draw.text((10, 10), "Dummy Image content", fill="black")
-        img.save(self.image_file)
+#        img = Image.new("RGB", (100, 100), color="white")
+#        draw = ImageDraw.Draw(img)
+#        draw.text((10, 10), "Dummy Image content", fill="black")
+#        img.save(self.image_file)
 
         # Crear un archivo no soportado
         self.unsupported_file.write_text("Dummy Unsupported content")
@@ -55,8 +54,38 @@ class TestExtractText(unittest.TestCase):
         text = extract_text(self.docx_file)
         self.assertIn("Dummy DOCX content", text)
 
+    # def test_extract_text_image(self):
+    #     # Crear una imagen válida para la prueba
+    #     img = Image.new("RGB", (200, 100), color="white")  # Aumentar el tamaño para mejorar la precisión del OCR
+    #     draw = ImageDraw.Draw(img)
+    #     draw.text((10, 40), "Dummy Image content", fill="black")  # Ajustar posición y tamaño del texto
+    #     img.save(self.image_file)
+
+    #     # Extraer texto de la imagen
+    #     text = extract_text(self.image_file)
+
+    #     # Verificar que el texto esperado esté contenido en el texto extraído
+    #     self.assertIn("Dummy Image content", text)
+    
     def test_extract_text_image(self):
+        # Crear una imagen válida para la prueba
+        img = Image.new("RGB", (300, 150), color="white")  # Aumentar el tamaño de la imagen
+        draw = ImageDraw.Draw(img)
+
+        # Usar una fuente clara y ajustar el tamaño del texto
+        try:
+            from PIL import ImageFont
+            font = ImageFont.truetype("arial.ttf", 24)  # Usar una fuente estándar
+        except IOError:
+            font = None  # Usar la fuente predeterminada si no está disponible
+
+        draw.text((10, 50), "Dummy Image content", fill="black", font=font)  # Ajustar posición y tamaño del texto
+        img.save(self.image_file)
+
+        # Extraer texto de la imagen
         text = extract_text(self.image_file)
+
+        # Verificar que el texto esperado esté contenido en el texto extraído
         self.assertIn("Dummy Image content", text)
 
     def test_extract_text_unsupported_file_type(self):

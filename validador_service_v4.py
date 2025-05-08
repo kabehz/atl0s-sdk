@@ -67,7 +67,7 @@ def extract_text_from_docx(file_path):
     return text
 
 def extract_text_from_image(image_path):
-    text = pytesseract.image_to_string(Image.open(image_path))
+    text = pytesseract.image_to_string(Image.open(image_path), lang="eng", config="--psm 6")
     return text
 
 def extract_text(file_path):

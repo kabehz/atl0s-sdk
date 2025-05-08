@@ -38,12 +38,6 @@ pyyaml==6.0.1
 #extract-msg==0.29.3
 #textract==1.6.4
 
-PyPDF2>=3.0.1
-# PyPDF2 es una biblioteca de Python que permite manipular archivos PDF.
-# Proporciona funcionalidades para leer, escribir y modificar documentos PDF,
-# lo que la convierte en una herramienta útil para tareas como la extracción de texto,
-# la fusión de archivos PDF, la división de páginas y la adición de anotaciones.
-
 pypdf>=3.0.0
 # pypdf es una biblioteca de Python que permite trabajar con archivos PDF.
 # Proporciona funcionalidades para leer, escribir y manipular documentos PDF,
@@ -57,8 +51,14 @@ pypdf>=3.0.0
 # lo que la convierte en una herramienta útil para tareas como la extracción de texto,
 # la conversión de formatos y la creación de anotaciones. PyMuPDF es conocida por su
 # rendimiento y eficiencia en el manejo de documentos grandes.
+
 python-docx==0.8.11
-pytesseract==0.3.8
+# python-docx es una biblioteca de Python que permite crear, modificar y leer documentos
+# de Microsoft Word (archivos .docx). Proporciona una interfaz sencilla y fácil de usar
+# para trabajar con el formato de archivo .docx, lo que la convierte en una herramienta
+# útil para automatizar tareas relacionadas con la generación y manipulación de documentos
+# de Word. Con python-docx, puedes agregar texto, imágenes, tablas y otros elementos a
+# tus documentos, así como aplicar estilos y formatos personalizados.
 
 # Análisis y clasificación semántica
 sentence-transformers==2.6.1
@@ -94,7 +94,7 @@ pytest==8.3.5
 pytest-cov==4.1.0
 pytest-mock==3.11.0
 pytest-async
-pytesseract==0.3.8
+pytesseract==0.3.13
 # pytest-asyncio==0.21.0
 # pytest-django==4.5.2
 # pytest-flask==1.2.0
