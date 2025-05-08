@@ -90,13 +90,7 @@ class TestExtractText(unittest.TestCase):
 #         for file in [self.pdf_file, self.docx_file, self.image_file, self.unsupported_file]:
 #             file.unlink(missing_ok=True)
 
-#     def test_extract_text_pdf(self):
-#         text = extract_text(self.pdf_file)
-#         self.assertEqual(text.strip(), "")
 
-#     def test_extract_text_docx(self):
-#         text = extract_text(self.docx_file)
-#         self.assertIn("Dummy DOCX content", text)
 
 #     # def test_extract_text_image(self):
 #     #     # Crear una imagen válida para la prueba

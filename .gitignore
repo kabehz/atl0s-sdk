@@ -10,7 +10,6 @@ __pycache__/**
 *.egg-info
 *.egg
 *.log
-*.coverage
 *.mypy_cache/**
 *.pytest_cache/**
 *.hypothesis
