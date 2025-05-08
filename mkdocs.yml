@@ -1,38 +1,79 @@
-site_name: Validador Semántico Jurídico
-repo_url: https://github.com/kabehz/validador-semantic
+site_name: 'Legal Validator – ATLANTYDE'
+site_url: 'https://kabehz.github.io/legal-validator/'
+site_description: 'Validación semántica legal, automatización de compliance y despliegue ético basado en NLP + DevSecOps.'
+site_author: 'Atlantyde Foundation'
+
 theme:
   name: material
   palette:
-    scheme: slate
-    primary: deep purple
-    accent: cyan
+    - scheme: default
+      primary: 'blue grey'
+      accent: 'indigo'
+      toggle:
+        icon: material/weather-night
+        name: Modo oscuro
+    - scheme: slate
+      primary: 'indigo'
+      accent: 'blue grey'
+      toggle:
+        icon: material/weather-sunny
+        name: Modo claro
+  font:
+    text: Roboto
+    code: Fira Code
+  favicon: assets/img/favicon.ico
+  logo: assets/img/logo-atlantyde.png
   features:
+    - navigation.instant
     - navigation.tabs
-    - search.highlight
     - navigation.top
+    - toc.integrate
     - content.code.copy
+    - search.highlight
+    - search.share
+
 plugins:
   - search
-  - tags
-nav:
-  - 🏗️ Arquitectura: arquitectura.md
-  - ⚙️ CI/CD: cicd.md
-  - 💻 CLI: cli.md
-  - 🐳 Docker: docker.md
-  - 🏠 Inicio: index.md
-  - 📜 Licencia: licencia.md
-  - ☸️ MicroK8s: microk8s.md
-  - 🧪 Tests: tests.md
+  - git-revision-date-localized
+  - minify:
+      minify_html: true
+  - mermaid2
 
 extra_css:
-  - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css
-  - assets/css/mermaid.css
   - assets/css/markdown.css
-extra_js:
-  - https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.0.2/mermaid.min.js
-  - assets/js/mermaid.js
+  - assets/css/mermaid.css
 
-icon:
-  logo: assets/images/logo.png
-  title: Validador Semántico Jurídico
-  description: Herramienta para validar la semántica jurídica de documentos legales
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/kabehz/atlantyde-kit-adoption
+    - icon: fontawesome/brands/linkedin
+      link: https://linkedin.com/in/jaimesilvagonzalez
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - admonition
+  - codehilite
+  - footnotes
+  - def_list
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+
+nav:
+  - Inicio: index.md
+  - Estructura del Proyecto: estructura_taxonomica.md
+  - Guía de Despliegue: deploy_doc_guide.md
+  - Arquitectura: arquitectura.md
+  - CLI: cli.md
+  - Docker: docker.md
+  - MicroK8s: microk8s.md
+  - CI/CD: cicd.md
+  - Contribución: CONTRIBUTIN.md
+  - Contratos Inteligentes:
+      - Transferencia: smart_contracts/contract_transferencia.md
