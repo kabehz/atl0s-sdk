@@ -12,10 +12,10 @@ setup(
             "legal-validator=validador.service:main"
         ]
     },
-    author="Tu Nombre",
+    author="Jaime Silva",
     description="Sistema de validación legal semántica",
     classifiers=[
         "Programming Language :: Python :: 3",
-        "License :: OSI Approved :: MIT License",
+        "License :: OSI Approved :: EULP License",
     ],
 )

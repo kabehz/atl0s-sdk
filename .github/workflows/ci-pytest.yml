@@ -21,7 +21,7 @@ jobs:
 
       # Configuración de PYTHONPATH
       - name: Set PYTHONPATH
-        run: echo "PYTHONPATH=$PYTHONPATH:src/$(pwd)" >> $GITHUB_ENV
+        run: echo "PYTHONPATH=$PYTHONPATH:$(pwd)/src" >> $GITHUB_ENV
 
       # Cache de dependencias de pip
       - name: Cache pip dependencies
@@ -47,7 +47,7 @@ jobs:
       # Ejecución de los tests
       - name: Run Unit Tests
         run: |
-          pytest tests/test_extract_text.py
+          pytest tests/
       #--maxfail=1 --disable-warnings -q
       # Cache de resultados de pytest
       - name: Cache pytest results
