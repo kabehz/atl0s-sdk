@@ -175,3 +175,15 @@ if __name__ == "__main__":
     output_folder = sys.argv[2] if len(sys.argv) > 2 else None
     analyze_documents(input_folder, output_folder)
     
+
+if __name__ == '__main__':
+    import argparse
+    parser = argparse.ArgumentParser(description='Validador Semántico Legal')
+    parser.add_argument('file', type=str, help='Ruta del archivo a validar')
+    args = parser.parse_args()
+    from pathlib import Path
+    text = extract_text(Path(args.file))
+    tax, keywords = load_taxonomy()
+    result = semantic_analysis(text, keywords)
+    print(result)
+    
