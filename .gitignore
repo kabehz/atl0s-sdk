@@ -15,3 +15,13 @@ __pycache__/**
 *.pytest_cache/**
 *.hypothesis
 *.hypothesis/
+# Distribution / packaging
+# Python distributions
+build/
+dist/
+# Python virtual environments
+.venv/
+# PyInstaller
+# PyInstaller
+#  Usually contains build/pyinstaller-*.spec
+#  Usually contains build/pyinstaller-*.spec

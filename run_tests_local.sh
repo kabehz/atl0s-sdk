@@ -20,8 +20,12 @@ pip install -r requirements.txt
 # pip install -r requirements-ml-prod.txt
 
 
+# echo "🔍 Ejecutando pruebas unitarias y de integración"
+# python3 -m unittest discover -s tests -v
 echo "🔍 Ejecutando pruebas unitarias y de integración"
-python3 -m unittest discover -s tests -v
+# pytest --tb=short -q --disable-warnings --maxfail=1
+echo "🔍 Ejecutando pruebas unitarias y de integración"
+pytest --tb=short -q --disable-warnings --maxfail=1 --cov=legal-advisor-validator
 # pytest --tb=short -q --disable-warnings --maxfail=1
 # pytest --tb=short -q --disable-warnings --maxfail=1 --cov=legal-advisor-validator
 # pytest --tb=short -q --disable-warnings --maxfail=1 --cov-report=html:coverage_html_report
