@@ -54,14 +54,16 @@ def get_changed_files():
 def detect_changes():
     """Detecta cambios en las carpetas src y tests."""
     changed_files = get_changed_files()
-    changes = {"src": [], "tests": []}
-
+    changes = {"src": [], "tests": [], "scripts": []}
+    
+    # Filtrar los archivos cambiados por carpeta
     for file in changed_files:
         if file.startswith("src/"):
             changes["src"].append(file)
         elif file.startswith("tests/"):
             changes["tests"].append(file)
-
+        elif file.startswith("scripts/"):
+            changes["scripts"].append(file)
     return changes
 
 if __name__ == "__main__":
