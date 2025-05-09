@@ -1,0 +1,7 @@
+- name: Example Playbook
+  hosts: localhost
+  tasks:
+    - name: Ensure a file exists
+      copy:
+        dest: /tmp/example.txt
+        content: "Hello, Ansible!"

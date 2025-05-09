@@ -1,8 +1,11 @@
 import unittest
 from pathlib import Path
 
-# Importaciones corregidas según nueva estructura
-from validador.service import hash_file, load_taxonomy, semantic_analysis
+# Importar la función a probar
+from src.pip.legal_validator.code import analyze_documents
+from src.pip.legal_validator.code import extract_text
+from src.pip.legal_validator.code import hash_file
+from src.pip.legal_validator.code import load_taxonomy, semantic_analysis
 
 class TestValidadorSemantico(unittest.TestCase):
     def setUp(self):
