@@ -30,7 +30,6 @@ Este repositorio está diseñado no solo para resolver problemas reales, sino pa
 | Docs     | Toda nueva función debe documentarse en `docs/` |
 | Tests    | Cada módulo debe tener al menos 1 prueba |
 
-
 ---
 # Guía para Contribuidores
 
@@ -50,7 +49,7 @@ Este repositorio está diseñado no solo para resolver problemas reales, sino pa
    ```bash
    pip install -r requirements.txt
    pip install -r requirements-dev.txt
----
+   ```
 
 ## 🛠️ Ambiente de desarrollo
 
