@@ -2,12 +2,18 @@ import unittest
 from pathlib import Path
 import sys
 from pathlib import Path
+from wsgiref.validate import validator
 
 # Añadir el directorio raíz del proyecto al PYTHONPATH
 sys.path.append(str(Path(__file__).resolve().parent.parent))
-# from validador_service_v4 import analyze_documents
-from validador_service_v4 import analyze_documents
-#from validador_service_v4 import analyze_documents
+
+
+# Importar la función a probar
+from src.pip.legal_validator.code import analyze_documents
+from src.pip.legal_validator.code import extract_text
+from src.pip.legal_validator.code import hash_file
+from src.pip.legal_validator.code import draw_semantic_graph
+
 
 class TestValidadorIntegracion(unittest.TestCase):
 

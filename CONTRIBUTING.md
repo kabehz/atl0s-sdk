@@ -31,6 +31,25 @@ Este repositorio está diseñado no solo para resolver problemas reales, sino pa
 | Tests    | Cada módulo debe tener al menos 1 prueba |
 
 ---
+# Guía para Contribuidores
+
+## Estructura del Proyecto
+- `src/`: Contiene el código fuente organizado por tecnología.
+- `tests/`: Contiene las pruebas correspondientes a cada tecnología.
+- `docs/`: Documentación del proyecto, incluyendo contratos inteligentes.
+
+## Cómo Añadir un Nuevo Componente
+1. Crea un directorio en `src/<tecnologia>/<componente>/`.
+2. Añade el código fuente en ese directorio.
+3. Crea un directorio correspondiente en `tests/<tecnologia>/<componente>/`.
+4. Añade las pruebas correspondientes en ese directorio.
+
+## Ejecución de Pruebas
+1. Instala las dependencias:
+   ```bash
+   pip install -r requirements.txt
+   pip install -r requirements-dev.txt
+   ```
 
 ## 🛠️ Ambiente de desarrollo
 

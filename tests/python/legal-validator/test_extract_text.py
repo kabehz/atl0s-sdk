@@ -2,10 +2,9 @@ import unittest
 from pathlib import Path
 from docx import Document
 from PIL import Image, ImageDraw
-import pytesseract
+# Importar la función a probar
+from src.pip.legal_validator.code import extract_text
 
-# Importar desde el nuevo módulo correctamente
-from validador.service import extract_text
 
 class TestExtractText(unittest.TestCase):
     def setUp(self):

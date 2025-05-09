@@ -1,14 +1,12 @@
 import unittest
 import networkx as nx
 import matplotlib.pyplot as plt
-# from pathlib import Path
-# from validador_service_v4 import draw_semantic_graph
 import sys
 from pathlib import Path
 # Añadir el directorio raíz del proyecto al PYTHONPATH
 sys.path.append(str(Path(__file__).resolve().parent.parent))
-from validador_service_v4 import draw_semantic_graph
-from validador_service_v4 import extract_text
+# Importar la función a probar
+from src.pip.legal_validator.code import draw_semantic_graph
 
 class TestVisualizations(unittest.TestCase):
 
