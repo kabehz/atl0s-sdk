@@ -3,10 +3,33 @@ import json
 from pathlib import Path
 import subprocess
 
+# def get_changed_files():
+#     """Obtiene la lista de archivos modificados en el último commit."""
+#     try:
+#         # Intenta obtener los cambios entre HEAD y HEAD~1
+#         result = subprocess.run(
+#             ["git", "diff", "--name-only", "HEAD~1", "HEAD"],
+#             stdout=subprocess.PIPE,
+#             stderr=subprocess.PIPE,
+#             text=True,
+#             check=True,
+#         )
+#         return result.stdout.splitlines()
+#     except subprocess.CalledProcessError as e:
+#         # Si falla, intenta obtener los cambios desde el inicio del repositorio
+#         print(f"Advertencia: {e.stderr}. Usando HEAD en su lugar.")
+#         result = subprocess.run(
+#             ["git", "diff", "--name-only", "HEAD"],
+#             stdout=subprocess.PIPE,
+#             stderr=subprocess.PIPE,
+#             text=True,
+#             check=True,
+#         )
+#         return result.stdout.splitlines()
+
 def get_changed_files():
     """Obtiene la lista de archivos modificados en el último commit."""
     try:
-        # Intenta obtener los cambios entre HEAD y HEAD~1
         result = subprocess.run(
             ["git", "diff", "--name-only", "HEAD~1", "HEAD"],
             stdout=subprocess.PIPE,
@@ -14,9 +37,9 @@ def get_changed_files():
             text=True,
             check=True,
         )
+        print(f"Archivos modificados detectados: {result.stdout}")
         return result.stdout.splitlines()
     except subprocess.CalledProcessError as e:
-        # Si falla, intenta obtener los cambios desde el inicio del repositorio
         print(f"Advertencia: {e.stderr}. Usando HEAD en su lugar.")
         result = subprocess.run(
             ["git", "diff", "--name-only", "HEAD"],
@@ -25,6 +48,7 @@ def get_changed_files():
             text=True,
             check=True,
         )
+        print(f"Archivos modificados detectados: {result.stdout}")
         return result.stdout.splitlines()
 
 def detect_changes():
