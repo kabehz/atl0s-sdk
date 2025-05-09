@@ -1,21 +1,20 @@
-
-site_name: 'Legal Validator – ATLANTYDE'
-site_url: 'https://kabehz.github.io/legal-validator/'
-site_description: 'Infraestructura para la validación legal semántica y soberanía normativa europea basada en NLP + DevSecOps.'
-site_author: 'Atlantyde Foundation'
+site_name: "Legal Validator – ATLANTYDE"
+site_url: "https://kabehz.github.io/legal-validator/"
+site_description: "Infraestructura para la validación legal semántica y soberanía normativa europea basada en NLP + DevSecOps."
+site_author: "Atlantyde Foundation"
 
 theme:
   name: material
   palette:
     - scheme: default
-      primary: 'blue grey'
-      accent: 'indigo'
+      primary: "blue grey"
+      accent: "indigo"
       toggle:
         icon: material/weather-night
         name: Modo oscuro
     - scheme: slate
-      primary: 'indigo'
-      accent: 'blue grey'
+      primary: "indigo"
+      accent: "blue grey"
       toggle:
         icon: material/weather-sunny
         name: Modo claro
@@ -40,7 +39,13 @@ plugins:
       minify_html: true
   - mermaid2
 
+extra_javascript:
+  - https://cdnjs.cloudflare.com/ajax/libs/scrollreveal/4.0.9/scrollreveal.min.js
+  - https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.0.1/intro.min.js
+
 extra_css:
+  - assets/css/animations.css
+  - https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.0.1/introjs.min.css
   - assets/css/markdown.css
   - assets/css/mermaid.css
 
@@ -68,6 +73,11 @@ markdown_extensions:
 
 nav:
   - Inicio: index.md
+  - Bienvenida IA: ATLANTYDE_ONEPAGER.md
+  - Onboarding: ONBOARDING_GITHUB.md
+  - MegaPrompt Cognitivo: MEGAPROMPT_ATLANTYDE.md
+  - Estructura: estructura_taxonomica.md
+  - Mapa Semántico: SEMANTIC_MAP.md
   - Base Legal: legal/index.md
   - Validador Semántico: validator/index.md
   - Arquitectura: arquitectura.md
@@ -76,7 +86,31 @@ nav:
   - MicroK8s: microk8s.md
   - CI/CD: cicd.md
   - Contribución: CONTRIBUTIN.md
-  - Estructura Taxonómica: estructura_taxonomica.md
   - Guía de Despliegue: deploy_doc_guide.md
   - Contratos Inteligentes:
       - Transferencia: smart_contracts/contract_transferencia.md
+      - Validación: smart_contracts/contract_validacion.md
+  - Políticas:
+      - Seguridad: policies/security.md
+      - Validación: policies/validation.md
+      - Cumplimiento: policies/compliance.md
+  - Recursos:
+      - Documentación: resources/documentation.md
+      - Herramientas: resources/tools.md
+      - Tutoriales: resources/tutorials.md
+  - Comunidad:
+      - GitHub: https://github.com/kabehz/atlantyde-kit-adoption
+      - LinkedIn: https://linkedin.com/in/jaimesilvagonzalez
+      - Twitter: https://twitter.com/atlantydefoundation
+  - Contacto: contacto.md
+  - Licencia: LICENSE.md
+  - Changelog: ../CHANGELOG.md
+  - FAQ: faq.md
+  - Contribuidores: contributors.md
+  - Glosario: glosario.md
+  - Créditos: credits.md
+  - Aviso Legal: aviso_legal.md
+  - Política de Privacidad: politica_privacidad.md
+  - Política de Cookies: politica_cookies.md
+  - Términos de Uso: terminos_uso.md
+  - Accesibilidad: accesibilidad.md
