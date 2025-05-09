@@ -11,6 +11,23 @@ En ATLANTYDE no solo contribuyes código. Estás construyendo **la memoria legal
 - **Versionar justicia** con semántica transparente
 - **Codificar ética** en flujos CI/CD auditables
 - **Documentar el saber** como un legado para otros humanos + máquinas
+- **Validar el futuro** con algoritmos de confianza
+- **Contribuir al bien común** con cada línea de código
+- **Educar y aprender** en un entorno colaborativo
+- **Automatizar la burocracia** para liberar el potencial humano
+- **Crear una infraestructura cognitiva** que respete la soberanía digital
+- **Construir un puente** entre el derecho y la tecnología
+- **Fomentar la transparencia** en la gobernanza digital
+- **Desarrollar una comunidad** de ciudadanos responsables y éticos
+- **Promover la soberanía digital** en Europa y más allá
+- **Crear un legado** para las futuras generaciones
+- **Conectar el conocimiento** con la acción
+- **Transformar la burocracia** en un proceso ágil y accesible
+- **Fomentar la colaboración** entre disciplinas y sectores
+- **Construir un futuro** donde la justicia sea accesible para todos
+- **Crear un entorno** donde la ética y la tecnología coexistan
+- **Fomentar la innovación** en el ámbito legal y tecnológico
+- **Crear un espacio** donde la tecnología y la ética se encuentren
 
 ---
 
@@ -30,12 +47,12 @@ make serve
 
 ## 🧠 Herramientas de un Ciudadano IA
 
-| Herramienta     | Propósito                          |
-|------------------|-------------------------------------|
-| MkDocs + Mermaid | Mapear el saber                    |
-| GitHub Actions   | Automatizar el bien                |
-| CI/CD            | Repetir la justicia sin errores    |
-| Pre-Commit       | Cuidar cada aporte como una gema   |
+| Herramienta      | Propósito                        |
+| ---------------- | -------------------------------- |
+| MkDocs + Mermaid | Mapear el saber                  |
+| GitHub Actions   | Automatizar el bien              |
+| CI/CD            | Repetir la justicia sin errores  |
+| Pre-Commit       | Cuidar cada aporte como una gema |
 
 ---
 
@@ -90,7 +107,6 @@ make serve
 ---
 
 🔍 Usa la barra lateral o este índice para navegar. Cada módulo es un paso hacia una Europa más autónoma, segura y legalmente transparente.
-
 
 # 🧭 Bienvenido a Legal Validator Docs
 

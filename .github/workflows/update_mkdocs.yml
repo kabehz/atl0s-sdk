@@ -3,12 +3,13 @@ name: Update MkDocs Index
 on:
   push:
     paths:
-      - 'docs/**/*.md'
-      - '.github/workflows/update_mkdocs.yml'
+      - "docs/**/*.md"
+      - ".github/workflows/update_mkdocs.yml"
+      - "**.md"
   pull_request:
     paths:
-      - 'docs/**/*.md'
-
+      - "docs/**/*.md"
+      - "**.md"
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -19,7 +20,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.10'
+          python-version: "3.11"
 
       - name: Install PyYAML
         run: pip install pyyaml

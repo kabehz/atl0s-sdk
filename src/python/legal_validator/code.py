@@ -186,4 +186,4 @@ if __name__ == '__main__':
     tax, keywords = load_taxonomy()
     result = semantic_analysis(text, keywords)
     print(result)
-    
+   
