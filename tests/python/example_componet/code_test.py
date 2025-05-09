@@ -1,5 +1,5 @@
 import unittest
-from src.pip.example_component.code import add
+from src.python.legal_validator.code import add
 
 class TestAddFunction(unittest.TestCase):
     def test_add(self):
