@@ -1,6 +1,7 @@
+
 site_name: 'Legal Validator – ATLANTYDE'
 site_url: 'https://kabehz.github.io/legal-validator/'
-site_description: 'Validación semántica legal, automatización de compliance y despliegue ético basado en NLP + DevSecOps.'
+site_description: 'Infraestructura para la validación legal semántica y soberanía normativa europea basada en NLP + DevSecOps.'
 site_author: 'Atlantyde Foundation'
 
 theme:
@@ -67,13 +68,15 @@ markdown_extensions:
 
 nav:
   - Inicio: index.md
-  - Estructura del Proyecto: estructura_taxonomica.md
-  - Guía de Despliegue: deploy_doc_guide.md
+  - Base Legal: legal/index.md
+  - Validador Semántico: validator/index.md
   - Arquitectura: arquitectura.md
   - CLI: cli.md
   - Docker: docker.md
   - MicroK8s: microk8s.md
   - CI/CD: cicd.md
   - Contribución: CONTRIBUTIN.md
+  - Estructura Taxonómica: estructura_taxonomica.md
+  - Guía de Despliegue: deploy_doc_guide.md
   - Contratos Inteligentes:
       - Transferencia: smart_contracts/contract_transferencia.md
