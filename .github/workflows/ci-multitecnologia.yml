@@ -19,13 +19,13 @@ jobs:
         id: detect
         run: |
           python scripts/detect_changes.py
-          echo "CHANGES=$(cat changes_detected.json)" >> $GITHUB_ENV
+          echo "CHANGES=$(cat changes_detected.json | jq -c)" >> $GITHUB_ENV
         shell: bash
 
   generate-matrix:
     needs: detect-changes
     runs-on: ubuntu-latest
-    if: ${{ needs.detect-changes.outputs.changes != '' }}
+    if: ${{ fromJson(needs.detect-changes.outputs.changes).src != [] || fromJson(needs.detect-changes.outputs.changes).tests != [] }}
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:

@@ -6,6 +6,7 @@ import subprocess
 def get_changed_files():
     """Obtiene la lista de archivos modificados en el último commit."""
     try:
+        # Intenta obtener los cambios entre HEAD y HEAD~1
         result = subprocess.run(
             ["git", "diff", "--name-only", "HEAD~1", "HEAD"],
             stdout=subprocess.PIPE,
@@ -15,8 +16,16 @@ def get_changed_files():
         )
         return result.stdout.splitlines()
     except subprocess.CalledProcessError as e:
-        print(f"Error al obtener archivos modificados: {e.stderr}")
-        return []
+        # Si falla, intenta obtener los cambios desde el inicio del repositorio
+        print(f"Advertencia: {e.stderr}. Usando HEAD en su lugar.")
+        result = subprocess.run(
+            ["git", "diff", "--name-only", "HEAD"],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True,
+            check=True,
+        )
+        return result.stdout.splitlines()
 
 def detect_changes():
     """Detecta cambios en las carpetas src y tests."""
@@ -36,3 +45,8 @@ if __name__ == "__main__":
     with open("changes_detected.json", "w") as f:
         json.dump(changes, f, indent=4)
     print("✅ Cambios detectados guardados en 'changes_detected.json'")
+
+    # Validar el formato del JSON antes de exportarlo
+    changes_str = json.dumps(changes)
+    print(f"Exportando cambios detectados: {changes_str}")
+    
