@@ -7,10 +7,10 @@ on:
       - release
       - site
       - main
-    paths:
-      - 'docs/**'
-      - 'mkdocs.yml'
-      - 'index.md'
+    # paths:
+    #   - 'docs/**'
+    #   - 'mkdocs.yml'
+    #   - 'index.md'
 
 permissions:
   contents: write

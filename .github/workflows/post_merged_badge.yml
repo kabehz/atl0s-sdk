@@ -1,12 +1,16 @@
 name: Post-Merge Badges Updater
 on:
-  push:
+  merge:
     branches:
+      - main
+      - release
+      - site
       - documentation
       - desarrollo
       - media
       - admin
       - bussines
+
 
 jobs:
   update-readme-badges:
