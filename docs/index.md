@@ -34,3 +34,4 @@
 - Acceso a Discord + Matrix privado por logros
 
 🧠 *Cada PR aquí es un acto de civilización cognitiva, no solo de código.*
+
