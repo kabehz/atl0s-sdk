@@ -1,6 +1,3 @@
-#### **Workflow Mejorado con Matriz Dinámica**
-# El siguiente workflow utiliza el script para generar la matriz y recorre todas las combinaciones de tecnologías y componentes:
-
 name: CI/CD Multitecnología Dinámico
 
 on:
@@ -51,24 +48,3 @@ jobs:
         run: |
           pytest tests/${{ matrix.tecnologia }}/${{ matrix.component }}/ --tb=short -q --disable-warnings --maxfail=5
 
-
-### **4. Beneficios de la Mejora**
-# 1. **Automatización Completa**:
-#   - No es necesario actualizar manualmente los workflows al añadir nuevas tecnologías o componentes.
-#   - El script detecta automáticamente los cambios en la estructura del repositorio.
-# 2. **Escalabilidad**:
-#    - Soporta un número creciente de tecnologías y componentes sin afectar el rendimiento del pipeline.
-# 3. **Consistencia**:
-#    - Garantiza que cada componente tenga un conjunto correspondiente de pruebas.
-#    - Genera advertencias si faltan pruebas para algún componente.
-# 4. **GitOps-Friendly**:
-#   - Los cambios en la estructura del repositorio se reflejan automáticamente en los workflows, alineándose con las mejores prácticas de GitOps.
-
-
-
-
-#3. **Documentar el Proceso**:
-#   - Añadir documentación en `docs/` para explicar cómo funciona la generación dinámica de la matriz y cómo añadir nuevas tecnologías o componentes.
-
-#4. **Optimizar el Pipeline**:
-#   - Si el número de componentes crece significativamente, considerar dividir el pipeline en múltiples jobs para mejorar el tiempo de ejecución.

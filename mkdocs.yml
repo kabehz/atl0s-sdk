@@ -1,7 +1,7 @@
-site_name: "Legal Validator – ATLANTYDE"
+site_name: "ATLANTYDE ACADEMY Foundation"
 site_url: "https://kabehz.github.io/legal-validator/"
-site_description: "Infraestructura para la validación legal semántica y soberanía normativa europea basada en NLP + DevSecOps."
-site_author: "Atlantyde Foundation"
+site_description: "Sociedad Cooperativa en Legaltech, EU Digital Compliance,Formación y Transformación Digital sirviendo infraestructura para la validación legal semántica y soberanía normativa europea basada en NLP + DevSecOps."
+site_author: ""
 
 theme:
   name: material
@@ -72,6 +72,10 @@ markdown_extensions:
       emoji_generator: !!python/name:materialx.emoji.to_svg
 
 nav:
+  - 🧭 Navegación Estratégica:
+      - Panel Semántico: panel_semantico.md
+  - Impacto Público:
+      - Contribución Social: components/impacto_social.md
   - Inicio: index.md
   - Bienvenida IA: ATLANTYDE_ONEPAGER.md
   - Onboarding: ONBOARDING_GITHUB.md
