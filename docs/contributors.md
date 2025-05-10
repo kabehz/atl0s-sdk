@@ -10,7 +10,7 @@ Agradecemos profundamente a quienes aportan su tiempo, energía y visión a este
 graph TD
   subgraph Núcleo Técnico
     A1[NLP Engineer: @kabehz]
-    A2[DevSecOps: @jaimesilva]
+    A2[DevSecOps: @jasilez]
     A3[Tester QA: @testbot]
   end
 
@@ -31,6 +31,7 @@ graph TD
 ## 🧠 ¿Cómo se organiza el mérito?
 
 Los contribuyentes aparecen según su impacto en:
+
 - 💻 Código
 - 📚 Documentación
 - 🧪 Pruebas
