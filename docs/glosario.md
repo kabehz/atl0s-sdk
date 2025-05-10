@@ -1,0 +1,188 @@
+# 📘 Glosario ATLANTYDE
+
+## Introducción 
+
+listado de términos técnicos y legales usados en este proyecto.
+
+- **Validador Semántico**: Motor de IA que analiza la coherencia jurídica de textos.
+- **EUPL**: Licencia pública europea de software libre.
+- **Taxonomía Jurídica**: Clasificación de conceptos legales por dominio.
+
+## Objetivo
+
+Este glosario tiene como objetivo proporcionar definiciones claras y concisas de los términos técnicos y legales utilizados en el proyecto ATLANTYDE. La comprensión de estos términos es fundamental para la correcta interpretación y aplicación de las herramientas y tecnologías desarrolladas en el marco del proyecto.
+
+- **Regla de Decisión**: Conjunto de condiciones que determinan un resultado legal.
+- **Auditoría Semántica**: Proceso de revisión de la coherencia jurídica de un texto o contrato.
+- **Política OPA**: Conjunto de reglas escritas en Rego para evaluar decisiones legales.
+- **Corpus Legal**: Conjunto de textos legales utilizados para entrenar modelos de IA.
+- **NLP Legal**: Procesamiento de lenguaje natural aplicado al análisis de textos legales.
+- **Z3**: Solver SMT utilizado para validar propiedades algebraicas.
+- **ReasonML**: Lenguaje de programación funcional utilizado para la validación algebraica.
+- **Oráculo**: Entidad externa que proporciona datos o condiciones para la ejecución de contratos inteligentes.
+- **Soberanía Digital**: Capacidad de un individuo o entidad para controlar sus propios datos y derechos digitales.
+- **Derecho Computable**: Concepto que se refiere a la representación de normas legales en un formato que puede ser procesado por máquinas.
+- **Intención Jurídica**: Propósito o significado detrás de un texto legal o contrato.
+- **Plantilla Legal**: Documento predefinido que contiene cláusulas y condiciones legales.
+- **Trazabilidad**: Capacidad de rastrear el origen y evolución de un documento o decisión legal.
+- **Conformidad**: Cumplimiento de normas o regulaciones legales.
+- **Incoherencia Semántica**: Inconsistencia o contradicción en el significado de un texto legal.
+- **Plantilla Legal**: Documento predefinido que contiene cláusulas y condiciones legales.
+- **Transacción**: Acción de transferir derechos o activos digitales.
+- **Acceso**: Permiso para realizar acciones en un sistema o contrato.
+- **Cumplimiento**: Adherencia a normas o regulaciones legales.
+- **Excepción**: Situación que permite una desviación de la norma general.
+- **Rol**: Función o posición de un actor en un sistema legal o contractual.
+- **Contexto Normativo**: Marco legal en el que se desarrolla una acción o decisión.
+- **Microservicio**: Arquitectura de software que divide una aplicación en pequeños servicios independientes.
+- **Infraestructura Reproducible**: Capacidad de recrear un entorno de software de manera consistente.
+- **GitOps**: Práctica de gestión de infraestructura y aplicaciones utilizando Git como única fuente de verdad.
+- **Pre-commit**: Herramienta para gestionar y automatizar tareas de pre-commit en Git.
+- **Gamificación**: Uso de elementos de juego en contextos no lúdicos para motivar y aumentar la participación.
+- **Neurodidáctica**: Enfoque educativo que integra neurociencia y didáctica.
+- **IA Aplicada**: Uso de inteligencia artificial en contextos prácticos y específicos.
+- **Soberanía Técnica**: Capacidad de una comunidad o individuo para controlar su propia infraestructura tecnológica.
+- **Justicia Cognitiva**: Concepto que busca la equidad en el acceso y uso de la información y el conocimiento.
+- **IA Generativa**: Tipo de inteligencia artificial que puede crear contenido nuevo, como texto, imágenes o música.
+- **IA Cognitiva**: Tipo de inteligencia artificial que simula procesos cognitivos humanos, como el aprendizaje y la toma de decisiones.
+- **IA Predictiva**: Tipo de inteligencia artificial que utiliza datos históricos para hacer predicciones sobre eventos futuros.
+- **IA Explicativa**: Tipo de inteligencia artificial que proporciona explicaciones sobre cómo se toman las decisiones.
+- **IA Descriptiva**: Tipo de inteligencia artificial que analiza datos para describir patrones y tendencias.
+- **IA Prescriptiva**: Tipo de inteligencia artificial que sugiere acciones basadas en análisis de datos.
+- **IA Normativa**: Tipo de inteligencia artificial que se centra en el cumplimiento de normas y regulaciones.
+- **IA Adaptativa**: Tipo de inteligencia artificial que se ajusta y mejora con el tiempo a medida que recibe nuevos datos.
+- **IA Autónoma**: Tipo de inteligencia artificial que puede operar de manera independiente sin intervención humana.
+- **IA Colaborativa**: Tipo de inteligencia artificial que trabaja en conjunto con humanos para lograr objetivos comunes.
+- **IA Interactiva**: Tipo de inteligencia artificial que permite la interacción en tiempo real con los usuarios.
+- **IA Contextual**: Tipo de inteligencia artificial que tiene en cuenta el contexto en el que se encuentra para tomar decisiones.
+- **IA Multimodal**: Tipo de inteligencia artificial que puede procesar y analizar múltiples tipos de datos (texto, imagen, audio).
+- **IA Híbrida**: Tipo de inteligencia artificial que combina diferentes enfoques y técnicas para resolver problemas complejos.
+- **IA Ética**: Tipo de inteligencia artificial que se desarrolla y utiliza de manera responsable y ética, considerando el impacto social y legal.
+- **IA Responsable**: Tipo de inteligencia artificial que se desarrolla y utiliza de manera responsable, considerando el impacto social y ético.
+- **IA Transparente**: Tipo de inteligencia artificial que proporciona claridad sobre cómo se toman las decisiones y se procesan los datos.
+- **IA Inclusiva**: Tipo de inteligencia artificial que busca ser accesible y beneficiosa para todos, sin discriminación.
+- **IA Sostenible**: Tipo de inteligencia artificial que se desarrolla y utiliza de manera que minimiza el impacto ambiental y promueve la sostenibilidad.
+- **IA Resiliente**: Tipo de inteligencia artificial que puede adaptarse y recuperarse de situaciones adversas o cambios en el entorno.
+- **IA Escalable**: Tipo de inteligencia artificial que puede crecer y adaptarse a diferentes volúmenes de datos y usuarios.
+- **IA Eficiente**: Tipo de inteligencia artificial que utiliza recursos de manera óptima para lograr resultados.
+- **IA Efectiva**: Tipo de inteligencia artificial que logra los resultados deseados de manera efectiva y precisa.
+- **IA Precisa**: Tipo de inteligencia artificial que proporciona resultados exactos y confiables.
+- **IA Fiable**: Tipo de inteligencia artificial que se puede confiar en su funcionamiento y resultados.
+- **IA Segura**: Tipo de inteligencia artificial que protege los datos y la privacidad de los usuarios.
+- **IA Privada**: Tipo de inteligencia artificial que garantiza la privacidad y confidencialidad de los datos.
+- **IA Abierta**: Tipo de inteligencia artificial que promueve la transparencia y el acceso a la tecnología y los datos.
+- **IA Colaborativa**: Tipo de inteligencia artificial que trabaja en conjunto con humanos para lograr objetivos comunes.
+
+## 🛠️ Herramientas y Recursos
+
+- `python`: lenguaje de programación para el servicio de validación.
+- `json`: formato de intercambio de datos estructurado.
+- `opa`: Open Policy Agent para validaciones semánticas.
+- `rego`: lenguaje de políticas para OPA.
+- `pytest`: framework de pruebas para validar lógica del contrato.
+- `black`, `flake8`: herramientas de linting y formateo para Python.
+- `isort`: herramienta para ordenar imports en Python.
+- `pre-commit`: herramienta para ejecutar scripts antes de commits.
+- `mkdocs`: generador de documentación para el proyecto.
+- `docker`: contenedor para empaquetar el servicio de validación.
+- `git`: sistema de control de versiones para el código fuente.
+- `github`: plataforma de desarrollo colaborativo.
+- `gitlab`: plataforma de desarrollo colaborativo.
+- `terraform`: herramienta de infraestructura como código.
+- `ansible`: herramienta de automatización de configuración.
+- `microk8s`: distribución ligera de Kubernetes.
+- `helm`: gestor de paquetes para Kubernetes.
+- `jsonschema`: validación de esquemas JSON.
+- `pytest-cov`: plugin para medir la cobertura de pruebas.
+- `pytest-opa`: plugin para integrar OPA con pytest.
+- `docker-compose`: herramienta para definir y ejecutar aplicaciones multi-contenedor.
+- `git-lfs`: extensión para manejar archivos grandes en Git.
+- `markdownlint`: herramienta para validar la sintaxis de Markdown.
+- `yamllint`: herramienta para validar la sintaxis de YAML.
+- `shellcheck`: herramienta para analizar scripts de shell.
+- `bandit`: herramienta para detectar vulnerabilidades en código Python.
+- `terraform-docs`: herramienta para generar documentación de Terraform.
+- `ansible-lint`: herramienta para validar playbooks de Ansible.
+- `mkdocs-material`: tema para MkDocs.
+- `mkdocs-git-revision-date-localized-plugin`: plugin para mostrar fechas de revisión en MkDocs.
+- `mkdocs-include-markdown-plugin`: plugin para incluir archivos Markdown en MkDocs.
+- `mkdocs-gitbook`: tema para MkDocs inspirado en GitBook.
+- `mkdocs-redirects`: plugin para redirecciones en MkDocs.
+- `mkdocs-awesome-pages`: plugin para crear una estructura de navegación en MkDocs.
+- `mkdocs-material-extensions`: extensiones para el tema Material de MkDocs.
+- `solidity`: lenguaje de programación para contratos inteligentes.
+- `web3`: biblioteca para interactuar con Ethereum.
+- `ethers`: biblioteca para interactuar con Ethereum.
+- `rust`: lenguaje de programación para contratos inteligentes.
+- `node`: entorno de ejecución para JavaScript.
+- `npm`: gestor de paquetes para JavaScript.
+- `yarn`: gestor de paquetes para JavaScript.
+- `truffle`: framework para desarrollo y pruebas de contratos.
+- `hardhat`: entorno de desarrollo para Ethereum.
+- `web3.py`: biblioteca para interactuar con Ethereum en Python.
+- `brownie`: framework para desarrollo y pruebas de contratos en Python.
+- `ganache-cli`: simulador de blockchain para pruebas locales.
+- `ganache-ui`: interfaz gráfica para Ganache.
+- `infura`: proveedor de nodos Ethereum.
+- `alchemy`: proveedor de nodos Ethereum.
+- `etherscan`: explorador de bloques de Ethereum.
+- `ipfs`: sistema de archivos distribuido.
+- `arweave`: almacenamiento permanente en blockchain.
+- `filecoin`: red de almacenamiento descentralizado.
+- `swarm`: almacenamiento descentralizado para Ethereum.
+- `libp2p`: biblioteca para redes peer-to-peer.
+- `ipld`: InterPlanetary Linked Data para datos distribuidos.
+- `orbit-db`: base de datos distribuida para aplicaciones descentralizadas.
+- `ipfs-cluster`: orquestador de IPFS.
+- `libp2p-swarm`: implementación de libp2p para Swarm.
+- `libp2p-kad-dht`: protocolo de descubrimiento de pares.
+- `libp2p-websockets`: transporte de WebSockets para libp2p.
+- `libp2p-quic`: transporte de QUIC para libp2p.
+- `libp2p-tls`: transporte seguro para libp2p.
+- `libp2p-mplex`: multiplexión de conexiones para libp2p.
+- `libp2p-yamux`: multiplexión de conexiones para libp2p.
+- `libp2p-secio`: cifrado de conexiones para libp2p.
+- `libp2p-noise`: cifrado de conexiones para libp2p.
+- `libp2p-gossipsub`: protocolo de mensajería para libp2p.
+- `libp2p-pubsub`: protocolo de mensajería para libp2p.
+- `libp2p-kad-routing`: enrutamiento Kademlia para libp2p.
+- `libp2p-dht`: tabla hash distribuida para libp2p.
+- `libp2p-peer-routing`: enrutamiento de pares para libp2p.
+- `libp2p-peer-exchange`: intercambio de pares para libp2p.
+- `libp2p-peer-id`: identificación de pares para libp2p.
+- `libp2p-peerstore`: almacenamiento de pares para libp2p.
+- `libp2p-transport`: transporte para libp2p.
+- `libp2p-connection`: conexión para libp2p.
+- `libp2p-muxer`: multiplexión para libp2p.
+- `libp2p-stream`: flujo para libp2p.
+- `ganache`: entorno local para simular blockchain.
+- `pytest`: framework de pruebas para validar lógica del contrato.
+- `pytest-cov`: plugin para medir la cobertura de pruebas.
+- `pytest-opa`: plugin para integrar OPA con pytest.
+- `pytest-asyncio`: plugin para pruebas asíncronas con pytest.
+- `pytest-flask`: plugin para pruebas de aplicaciones Flask.
+- `pytest-django`: plugin para pruebas de aplicaciones Django.
+- `pytest-requests`: plugin para pruebas de solicitudes HTTP.
+- `pytest-httpx`: plugin para pruebas de solicitudes HTTP con httpx.
+- `pytest-aiohttp`: plugin para pruebas de aplicaciones aiohttp.
+- `pytest-tornado`: plugin para pruebas de aplicaciones Tornado.
+- `pytest-sanic`: plugin para pruebas de aplicaciones Sanic.
+- `pytest-fastapi`: plugin para pruebas de aplicaciones FastAPI.
+- `pytest-flask-sqlalchemy`: plugin para pruebas de aplicaciones Flask con SQLAlchemy.
+- `pytest-django-rest-framework`: plugin para pruebas de aplicaciones Django REST Framework.
+- `pytest-factoryboy`: plugin para pruebas con Factory
+- `pytest-mock`: plugin para pruebas con mocks.
+- `pytest-cookies`: plugin para pruebas de cookies.
+- `pytest-flask-login`: plugin para pruebas de autenticación en Flask.
+- `pytest-django-allauth`: plugin para pruebas de autenticación en Django.
+- `pytest-django-extensions`: plugin para pruebas de extensiones de Django.
+- `pytest-django-celery`: plugin para pruebas de tareas asíncronas en Django.
+- `pytest-django-debug-toolbar`: plugin para pruebas de Django Debug Toolbar.
+- `pytest-django-filter`: plugin para pruebas de filtros en Django.
+- `pytest-django-redis`: plugin para pruebas de Redis en Django.
+- `pytest-django-storages`: plugin para pruebas de almacenamiento en Django.
+- `pytest-django-webpack-loader`: plugin para pruebas de Webpack en Django.
+- `pytest-django-webpack`: plugin para pruebas de Webpack en Django.
+- `pytest-django-webpack-bundle-tracker`: plugin para pruebas de Webpack Bundle Tracker en Django.
+
+---

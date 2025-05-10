@@ -2,37 +2,32 @@ import os
 from pathlib import Path
 import yaml
 
-BASE_DIR = Path(__file__).resolve().parent.parent
-DOCS_DIR = BASE_DIR / "docs"
-MKDOCS_FILE = BASE_DIR / "mkdocs.yml"
+def generate_mkdocs():
+    docs_path = Path("docs")
+    mkdocs_path = Path("mkdocs.yml")
 
-def generate_nav():
+    # Leer el archivo mkdocs.yml existente
+    with open(mkdocs_path, "r") as f:
+        mkdocs_config = yaml.safe_load(f)
+
+    # Generar navegación dinámica
     nav = []
-    for root, _, files in os.walk(DOCS_DIR):
-        files = [f for f in files if f.endswith(".md")]
-        if not files:
-            continue
-        section = Path(root).relative_to(DOCS_DIR)
-        section_title = section.name if section != Path('.') else None
-        entries = []
-        for file in sorted(files):
-            name = Path(file).stem.replace("_", " ").capitalize()
-            rel_path = Path(root, file).relative_to(BASE_DIR)
-            entries.append({name: str(rel_path)})
-        if section_title:
-            nav.append({section_title.capitalize(): entries})
-        else:
-            nav.extend(entries)
-    return nav
+    for root, dirs, files in os.walk(docs_path):
+        for file in files:
+            if file.endswith(".md"):
+                relative_path = Path(root).relative_to(docs_path) / file
+                section = relative_path.parts[0]
+                entry = {section: str(relative_path)}
+                if entry not in nav:
+                    nav.append(entry)
 
-def main():
-    config = {
-        "site_name": "Legal Validator",
-        "theme": {"name": "material"},
-        "nav": generate_nav()
-    }
-    with open(MKDOCS_FILE, "w") as f:
-        yaml.dump(config, f, sort_keys=False, allow_unicode=True)
+    # Actualizar la configuración de navegación
+    mkdocs_config["nav"] = nav
+
+    # Guardar el archivo actualizado
+    with open(mkdocs_path, "w") as f:
+        yaml.dump(mkdocs_config, f, default_flow_style=False, sort_keys=False)
+    print("✅ Archivo 'mkdocs.yml' actualizado dinámicamente")
 
 if __name__ == "__main__":
-    main()
+    generate_mkdocs()

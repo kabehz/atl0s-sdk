@@ -1,0 +1,27 @@
+name: Post-Merge Badges Updater
+on:
+  push:
+    branches:
+      - documentation
+      - desarrollo
+      - media
+      - admin
+      - bussines
+
+jobs:
+  update-readme-badges:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v4
+
+      - name: Insertar badges de MkDocs
+        run: bash scripts/insert_mkdocs_badges.sh
+
+      - name: Commit cambios si README modificado
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add README.md
+          git diff --cached --quiet || git commit -m "🔖 Inserción automática de badges MkDocs tras merge"
+          git push

@@ -1,54 +1,113 @@
-name: CI/CD Multitecnología
+name: CI/CD Multitecnología Dinámica
 
 on:
   push:
     branches: [main]
   pull_request:
     branches: [main]
+  workflow_dispatch:
 
 jobs:
-  test-python:
+  detect-changes:
     runs-on: ubuntu-latest
+    outputs:
+      changes: ${{ steps.detect.outputs.changes }}
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Detect Changes
+        id: detect
+        run: |
+          python scripts/detect_changes.py
+          echo "CHANGES=$(cat changes_detected.json | jq -c)" >> $GITHUB_ENV
+        shell: bash
+
+      - name: Debug Changes
+        run: cat changes_detected.json
+
+  generate-matrix:
+    needs: detect-changes
+    runs-on: ubuntu-latest
+    if: ${{ needs.detect-changes.outputs.changes != '' }}
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Generate GHA Matrix
+        id: set-matrix
+        run: |
+          python scripts/generate_gha_matrix.py
+          echo "MATRIX=$(cat gha_matrix.json)" >> $GITHUB_ENV
+        shell: bash
+
+  ci_technology:
+    needs: generate-matrix
+    runs-on: ubuntu-latest
+    if: ${{ needs.generate-matrix.outputs.matrix != '' }}
+    strategy:
+      matrix: ${{ fromJson(needs.generate-matrix.outputs.matrix).include }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
       - name: Set up Python
-        uses: actions/setup-python@v4
+        if: ${{ matrix.technology == 'python' }}
+        uses: actions/setup-python@v3
         with:
-          python-version: '3.10'
-      - name: Install dependencies
-        run: |
-          pip install -r src/pip/legal-validator/requirements.txt
-      - name: Run Python tests
-        run: |
-          pytest tests/python/
+          python-version: "3.11"
 
-  test-bash:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Run Bash script tests
-        run: bash tests/bash/test_scripts.sh
-
-  test-terraform:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v3
-      - name: Terraform Init & Validate
+      - name: Install Python deps
+        if: ${{ matrix.technology == 'python' }}
         run: |
-          cd src/iac/terraform
+          python -m venv .venv
+          source .venv/bin/activate
+          pip install -r src/python/${{ matrix.component }}/requirements.txt
+
+      - name: Run Python Tests
+        if: ${{ matrix.technology == 'python' }}
+        run: |
+          pytest tests/${{ matrix.technology }}/${{ matrix.component }}/ --junitxml=results.xml
+
+      - name: Run Bash Tests
+        if: ${{ matrix.technology == 'bash' }}
+        run: bash tests/${{ matrix.technology }}/${{ matrix.component }}/test_scripts.sh > results.log
+
+      - name: Validate Terraform
+        if: ${{ matrix.technology == 'terraform' }}
+        run: |
+          cd src/iac/terraform/${{ matrix.component }}
           terraform init
-          terraform validate
+          terraform validate > results.log
 
-  test-ansible:
+      - name: Ansible Syntax Check
+        if: ${{ matrix.technology == 'ansible' }}
+        run: |
+          ansible-playbook --syntax-check src/iac/ansible/${{ matrix.component }}/playbook.yml > results.log
+
+      - name: Upload Test Results
+        uses: actions/upload-artifact@v2
+        with:
+          name: results-${{ matrix.technology }}-${{ matrix.component }}
+          path: results.xml
+
+  update-mkdocs:
+    needs: detect-changes
     runs-on: ubuntu-latest
+    if: ${{ needs.detect-changes.outputs.changes != '' }}
     steps:
-      - uses: actions/checkout@v3
-      - name: Install Ansible
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Update mkdocs
+        run: python scripts/generate_mkdocs.py
+
+      - name: Commit updated mkdocs.yml
         run: |
-          sudo apt-get update
-          sudo apt-get install -y ansible
-      - name: Check Ansible syntax
-        run: |
-          ansible-playbook --syntax-check src/iac/ansible/playbook.yml
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add mkdocs.yml
+          git commit -m "🔄 Actualización automática de mkdocs.yml"
+          git push

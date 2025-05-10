@@ -34,33 +34,34 @@
 # Con esta mejora, el repositorio está preparado para escalar de manera eficiente, soportando múltiples tecnologías y componentes con un pipeline completamente automatizado y dinámico. 😊
 import os
 import json
+from pathlib import Path
 
-def generate_gha_matrix():
-    base_src = "src"
-    base_tests = "tests"
+def generate_matrix():
+    base_src = Path("src")
+    base_tests = Path("tests")
     matrix = []
 
-    for tecnologia in os.listdir(base_src):
-        tecnologia_path = os.path.join(base_src, tecnologia)
-        if os.path.isdir(tecnologia_path):
-            for component in os.listdir(tecnologia_path):
-                component_path = os.path.join(tecnologia_path, component)
-                if os.path.isdir(component_path):
-                    # Verificar si existe el directorio de tests correspondiente
-                    test_path = os.path.join(base_tests, tecnologia, component)
-                    if os.path.exists(test_path):
+    for technology in base_src.iterdir():
+        if technology.is_dir():
+            for component in technology.iterdir():
+                if component.is_dir():
+                    # Verificar si existe el directorio de pruebas correspondiente
+                    test_path = base_tests / technology.name / component.name
+                    if test_path.exists():
                         matrix.append({
-                            "tecnologia": tecnologia,
-                            "component": component
+                            "technology": technology.name,
+                            "component": component.name
                         })
                     else:
-                        print(f"⚠️ Advertencia: No se encontraron tests para {tecnologia}/{component}")
+                        print(f"⚠️ Advertencia: No se encontraron pruebas para {technology.name}/{component.name}")
 
     return {"include": matrix}
 
 if __name__ == "__main__":
-    matrix = generate_gha_matrix()
-    print(json.dumps(matrix))
+    matrix = generate_matrix()
+    with open("gha_matrix.json", "w") as f:
+        json.dump(matrix, f, indent=4)
+    print("✅ Matriz generada en 'gha_matrix.json'")
 
 # - Este script recorre las carpetas `src` y `tests`, generando una matriz que se puede utilizar en los workflows de GitHub Actions.
 # - La matriz generada se puede utilizar en los workflows de GitHub Actions para ejecutar pruebas automáticamente para cada componente y tecnología.
