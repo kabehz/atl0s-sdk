@@ -1,0 +1,31 @@
+{
+  "name": "atl0s-sdk-dev",
+  "dockerFile": "Dockerfile",
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash",
+    "python.pythonPath": "/usr/local/bin/python",
+    "editor.formatOnSave": true
+  },
+  "extensions": [
+    "ms-python.python",
+    "ms-python.black-formatter",
+    "esbenp.prettier-vscode",
+    "tsandall.opa",
+    "hashicorp.terraform",
+    "foxundermoon.shell-format",
+    "timonwong.shellcheck",
+    "DavidAnson.vscode-markdownlint",
+    "rust-lang.rust-analyzer",
+    "astro-build.astro-vscode",
+    "ms-azuretools.vscode-docker",
+    "redhat.vscode-yaml",
+    "dbaeumer.vscode-eslint"
+  ],
+  "forwardPorts": [
+    8000,
+    8080,
+    5000
+  ],
+  "postCreateCommand": "bash .devcontainer/post-create.sh",
+  "remoteUser": "vscode"
+}

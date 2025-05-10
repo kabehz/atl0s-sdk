@@ -79,15 +79,25 @@ nav:
   - Estructura: estructura_taxonomica.md
   - Mapa Semántico: SEMANTIC_MAP.md
   - Base Legal: legal/index.md
-  - Validador Semántico: validator/index.md
-  - Arquitectura: arquitectura.md
-  - CLI: cli.md
-  - Docker: docker.md
-  - MicroK8s: microk8s.md
-  - CI/CD: cicd.md
+  - ALM SDLC ATLANTYDE:
+      - Introducción: index.md
+      - Arquitectura: arquitectura.md
+      - CI/CD:
+          - cicd.md
+      - Herramientas:
+          - CLI: cli.md
+          - Docker: docker.md
+          - MicroK8s: microk8s.md
+      - Guía de Despliegue: deploy_doc_guide.md
+      - Validación Semántica:
+          - Introducción: semantic_validation/index.md
+          - Arquitectura: semantic_validation/architecture.md
+          - Herramientas: semantic_validation/tools.md
+          - Despliegue: semantic_validation/deploy.md
+  - Validación Legal: validator/index.md
   - Contribución: CONTRIBUTIN.md
-  - Guía de Despliegue: deploy_doc_guide.md
   - Contratos Inteligentes:
+      - Introducción: smart_contracts/example_contract.md
       - Transferencia: smart_contracts/contract_transferencia.md
       - Validación: smart_contracts/contract_validacion.md
   - Políticas:
