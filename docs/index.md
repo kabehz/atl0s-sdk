@@ -4,6 +4,10 @@
 
 En ATLANTYDE no solo contribuyes código. Estás construyendo **la memoria legal viva de una nueva civilización ética, transparente y autónoma**.
 
+La **Fundación ATLANTYDE** es un movimiento que busca **redefinir la relación entre la tecnología y el derecho**. Aquí, cada línea de código es un paso hacia una Europa más soberana y resiliente.
+
+La **Soberanía digital** no es solo un concepto; es una necesidad urgente. En un mundo donde la tecnología avanza a pasos agigantados, es crucial que los ciudadanos tengan el control sobre sus datos y su legislación.
+
 ---
 
 ## 🧭 Tu Misión como Ciudadano Atlante
