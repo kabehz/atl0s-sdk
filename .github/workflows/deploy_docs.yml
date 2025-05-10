@@ -4,11 +4,27 @@ on:
   push:
     branches:
       - documentation
+      - release
+      - site
       - main
     paths:
       - 'docs/**'
       - 'mkdocs.yml'
       - 'index.md'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+  pull-requests: write
+  issues: write
+  checks: write
+  statuses: write
+  deployments: write
+  actions: write
+  repository-projects: write
+  discussions: write
+  packages: write
 
 jobs:
   deploy:
@@ -16,7 +32,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Python
         uses: actions/setup-python@v4
@@ -26,7 +42,17 @@ jobs:
       - name: Install dependencies
         run: |
           pip install mkdocs mkdocs-material pyyaml
+          pip install -r requirements.txt
+      - name: Validar configuración de MkDocs
+        run: |
+          mkdocs build --strict --site-dir /tmp/mkdocs_build_check
 
       - name: Build and deploy
         run: |
           mkdocs gh-deploy --force
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CI: false
+          MKDOCS_SITE_DIR: docs
+          MKDOCS_SITE_NAME: ATLANTYDE LABs Foundation
+          MKDOCS_REPO_BRANCH: site
