@@ -1,6 +1,6 @@
 name: Post-Merge Badges Updater
 on:
-  merge:
+  push:
     branches:
       - main
       - release
