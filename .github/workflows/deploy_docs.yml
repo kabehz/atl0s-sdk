@@ -6,7 +6,7 @@ on:
     branches:
       - documentation
       - release
-      - site
+      - gh-pages
       - main
     # paths:
     #   - 'docs/**'
@@ -56,4 +56,4 @@ jobs:
           CI: false
           MKDOCS_SITE_DIR: docs
           MKDOCS_SITE_NAME: ATLANTYDE LABs Foundation
-          MKDOCS_REPO_BRANCH: site
+          MKDOCS_REPO_BRANCH: gh-pages
