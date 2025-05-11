@@ -12,10 +12,10 @@ jobs:
 
     steps:
       - name: ⬇️ Clonar repositorio
-        uses: actions/checkout@v3
-
-      - name: ⚙️ Dar permisos al script
-        run: chmod +x scripts/storyline-generator.sh
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.ref }}  # Cambia a la rama actual
 
       - name: 🛠️ Ejecutar generación narrativa
         run: bash scripts/storyline-generator.sh

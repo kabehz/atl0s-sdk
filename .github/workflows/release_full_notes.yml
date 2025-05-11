@@ -12,7 +12,11 @@ jobs:
       tags: ${{ steps.tag.outputs.version }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.ref }}  # Cambia a la rama actual
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Detect Tag
         id: tag
@@ -28,7 +32,7 @@ jobs:
         run: |
           mkdir bundles
           jq -r '.src[]' changes_detected.json | while read component; do
-            zip -r "bundles/${component}.zip" "src/${component}"
+            zip -r "bundles/${component}.zip" "src/${{technology}}/${component}"
           done
 
       - name: Subir artefactos
