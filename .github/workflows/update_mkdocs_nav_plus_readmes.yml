@@ -7,7 +7,7 @@ on:
       - 'docs/**'
       - 'mkdocs.yml'
       - 'index.md'
-      - 'README_*.md'
+      - 'README*.md'
       - 'scripts/insert_dynamic_readmes.sh'
 
 jobs:
