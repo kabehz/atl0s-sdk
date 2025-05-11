@@ -1,6 +1,7 @@
 # 🧭 DOCUMENTACIÓN DEL DISEÑO NARRATIVO – ATLANTYDE SITE
 
 ## 🎯 Objetivo
+
 Definir la estructura semántica y emocional del sitio web de ATLANTYDE, alineada con su visión fundacional, estética atlántica y tono institucional regenerativo.
 
 ---
