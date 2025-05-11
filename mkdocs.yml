@@ -39,6 +39,7 @@ plugins:
       minify_html: true
   - mermaid2
 
+
 extra_javascript:
   - https://cdnjs.cloudflare.com/ajax/libs/scrollreveal/4.0.9/scrollreveal.min.js
   - https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.0.1/intro.min.js
@@ -67,9 +68,9 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.inlinehilite
   - pymdownx.tabbed
-  # - pymdownx.emoji:
-  #     emoji_index: !!python/name:materialx.emoji.twemoji
-  #     emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
 
 nav:
   - 🧭 Navegación Estratégica:
