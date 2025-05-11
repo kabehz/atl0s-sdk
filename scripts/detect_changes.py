@@ -58,11 +58,11 @@ def detect_changes():
     
     # Filtrar los archivos cambiados por carpeta
     for file in changed_files:
-        if file.startswith("src/"):
+        if file.startswith("src/**/**"):
             changes["src"].append(file)
-        elif file.startswith("tests/"):
+        elif file.startswith("tests/**/**"):
             changes["tests"].append(file)
-        elif file.startswith("scripts/"):
+        elif file.startswith("scripts/**/**"):
             changes["scripts"].append(file)
     return changes
 
