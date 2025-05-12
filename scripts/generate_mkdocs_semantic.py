@@ -1,4 +1,6 @@
-import os, yaml
+import os
+import yaml
+from pathlib import Path
 
 def build_nav(base_dir="docs"):
     nav = []
