@@ -57,20 +57,10 @@ def main():
             "language": "es"
         },
         "extra_css": [
-            "assets/css/animations.css",
-            "assets/branding/nav-style.css",
             "assets/css/markdown.css",
             "assets/css/mermaid.css"
         ],
         "extra_javascript": [
-            "assets/js/leaderboard.js",
-            "assets/js/nav-iteraction.js",
-            "assets/branding/scroll-effect.js",
-            "assets/js/intersection-observer.js",
-            # "assets/js/scrollspy.js",
-            # "assets/js/scrollspy-nav.js",
-            # "assets/js/scrollspy-animated.js",
-            # "assets/js/scrollspy-animated-nav.js",
             "https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.0.1/intro.min.js"
         ],
         "extra": {
@@ -100,9 +90,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-# This script generates a mkdocs.yml file for the documentation site.
-# It scans the specified base directory for markdown files and organizes them into a navigation structure.
-# The generated mkdocs.yml file includes configuration for the Material theme, extra CSS and JS files, and various plugins.
-# The script uses the PyYAML library to create the YAML file and the argparse library to handle command-line arguments.
-# The script also includes a function to build the navigation structure based on the directory and file names.
-# The navigation structure is hierarchical, with sections and subsections based on the directory structure.
