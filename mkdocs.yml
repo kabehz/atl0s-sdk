@@ -83,7 +83,6 @@ plugins:
       tertiaryColor: '#ffffff'
       noteBkgColor: '#ffffff'
       noteTextColor: '#000000'
-- material/get-deps
 nav:
 - Changelog v0.5.2-historia: ./CHANGELOG_v0.5.2-historia.md
 - Changelog v0.6.0-labs: ./CHANGELOG_v0.6.0-labs.md

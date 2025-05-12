@@ -130,8 +130,8 @@ config = {
                 "noteTextColor": "#000000"
               }
             }
-        },
-        "material/get-deps"
+        }
+        #"material-get-deps"
     ],
     "nav": build_nav()
 }
