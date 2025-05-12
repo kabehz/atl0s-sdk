@@ -43,8 +43,7 @@ config = {
             "toc.integrate",
             "search.highlight",
             "search.share",
-            "search.suggest",
-            "search.share"
+            "search.suggest"
         ],
         "font": {
             "text": "Roboto",
@@ -60,18 +59,14 @@ config = {
                 "collapse": "fontawesome/solid/caret-down",
                 "expand": "fontawesome/solid/caret-up"
             }
-        },
+        }
     },
     "extra_css": [
         "assets/css/animations.css",
-        "assets/branding/nav-style.css"
+        "assets/branding/nav-style.css",
         "https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.0.1/introjs.min.css",
         "assets/css/markdown.css",
-        "assets/css/mermaid.css",
-        #"assets/css/scrollreveal.css",
-        #"assets/css/scroll-effect.css",
-        #"assets/css/introjs.css",
-        #"assets/css/introjs-rtl.css",
+        "assets/css/mermaid.css"
     ],
     "extra_javascript": [
         "assets/js/intersection-observer.js",
@@ -79,7 +74,18 @@ config = {
         "https://cdnjs.cloudflare.com/ajax/libs/scrollreveal/4.0.9/scrollreveal.min.js",
         "https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.0.1/intro.min.js"
     ],
-    #"extra": [],
+    "extra": {
+        "social": [
+            {
+                "icon": "fontawesome/brands/github",
+                "link": "https://github.com/kabehz/atlantyde-kit-adoption"
+            },
+            {
+                "icon": "fontawesome/brands/linkedin",
+                "link": "https://linkedin.com/in/jaimesilvagonzalez"
+            }
+        ]
+    },
     "markdown_extensions": [
         "toc",
         "tables",
@@ -101,9 +107,9 @@ config = {
         }
     ],
     "plugins": [
-         {
+        {
             "search": {
-                "index": True,
+                "index": True
             }
         },
         {
@@ -118,28 +124,11 @@ config = {
               "theme": "default",
               "themeVariables": {
                 "primaryColor": "#4A90E2",
-                "edgeLabelBackground":"#ffffff",
-                "tertiaryColor":"#ffffff",
-                "noteBkgColor":"#ffffff",
-                "noteTextColor":"#000000"
+                "edgeLabelBackground": "#ffffff",
+                "tertiaryColor": "#ffffff",
+                "noteBkgColor": "#ffffff",
+                "noteTextColor": "#000000"
               }
-          },
-        },
-        #{
-        #    "pymdownx.superfences": {
-        #        "custom_fences": [
-        #            {
-        #                "name": "mermaid",
-        #                "class": "mermaid",
-        #                "format": lambda code: code
-        #            }
-        #        ]
-        #    }
-        #},
-        {
-            "admonition": {
-                "css_class": "admonition",
-                "title_css_class": "admonition-title"
             }
         },
         "material/get-deps"
@@ -150,4 +139,4 @@ config = {
 with open("mkdocs.yml", "w") as f:
     yaml.dump(config, f, sort_keys=False)
 
-print("✅ mkdocs.yml generado dinámicamente con extensiones emoji válidas.")
+print("✅ mkdocs.yml regenerado con prácticas óptimas y sociales integradas.")
