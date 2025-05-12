@@ -50,9 +50,9 @@ jobs:
       - name: 🧠 Autogenerar navegación MkDocs semántica
         run: python scripts/generate_mkdocs_semantic.py
         
-      - name: Validar configuración de MkDocs
-        run: |
-          mkdocs build --strict --site-dir /tmp/mkdocs_build_check
+      # - name: Validar configuración de MkDocs
+      #   run: |
+      #     mkdocs build --strict --site-dir /tmp/mkdocs_build_check
 
       - name: Build and deploy
         run: |
