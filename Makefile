@@ -1,26 +1,35 @@
-# 🧠 Makefile de control para Validador Semántico Jurídico
+# Makefile - ATLANTYDE DevOps Local
 
-.PHONY: test analyze docker serve deploy mkvenv install all
+VENV := .venv
+PYTHON := $(VENV)/bin/python
+PIP := $(VENV)/bin/pip
 
-test:
-	@python manage.py test
+.DEFAULT_GOAL := help
 
-analyze:
-	@python manage.py analyze
-
-docker:
-	@python manage.py docker
-
-serve:
-	@python manage.py serve
-
-deploy:
-	@python manage.py deploy
-
-mkvenv:
-	@python manage.py mkvenv
+help:
+	@echo "🧠 Comandos disponibles:"
+	@echo "  make install   → Instala entorno y dependencias"
+	@echo "  make serve     → Lanza documentación local"
+	@echo "  make test      → Ejecuta tests"
+	@echo "  make build     → Compila documentación"
+	@echo "  make nav       → Autogenera navegación semántica"
+	@echo "  make all       → nav + build + test"
 
 install:
-	@python manage.py install
+	python3 -m venv $(VENV)
+	$(PIP) install -r requirements.txt
+	$(PIP) install -r requirements-dev.txt
 
-all: install test analyze serve
+nav:
+	$(PYTHON) scripts/generate_mkdocs_semantic.py
+
+serve: nav
+	$(VENV)/bin/mkdocs serve
+
+build: nav
+	$(VENV)/bin/mkdocs build --strict
+
+test:
+	$(VENV)/bin/pytest
+
+all: nav build test

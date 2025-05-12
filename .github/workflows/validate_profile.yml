@@ -1,0 +1,28 @@
+name: ✅ Validar Perfil de Colaborador
+
+on:
+  pull_request:
+    paths:
+      - 'profiles/profile-*.md'
+
+jobs:
+  check-profile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v3
+
+      - name: Verificar contenido de perfil
+        run: |
+          archivo=$(find profiles -type f -name "profile-*.md")
+          echo "📄 Verificando $archivo"
+          if grep -q "Ingeniero/a en Soberanía Digital" "$archivo" &&
+             grep -q "Labs completados" "$archivo" &&
+             grep -q "Firma Ética" "$archivo" &&
+             grep -q "badge-nivel-" "$archivo" &&
+             grep -q "badge-role-" "$archivo"; then
+              echo "✅ Perfil válido"
+          else
+              echo "❌ Perfil incompleto o mal formateado. Revisa los campos obligatorios." >&2
+              exit 1
+          fi

@@ -34,7 +34,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
+        with:
+          fetch-depth: 0
+          ref: ${{ github.ref }}
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
@@ -44,6 +46,10 @@ jobs:
         run: |
           pip install mkdocs mkdocs-material pyyaml
           pip install -r requirements.txt
+
+      - name: 🧠 Autogenerar navegación MkDocs semántica
+        run: python scripts/generate_mkdocs_semantic.py
+        
       - name: Validar configuración de MkDocs
         run: |
           mkdocs build --strict --site-dir /tmp/mkdocs_build_check
