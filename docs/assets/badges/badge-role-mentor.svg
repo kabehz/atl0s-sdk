@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="70">
+  <style>
+    .bg {
+      fill: #f39c12;
+      rx: 12;
+    }
+    .text {
+      font-family: 'Segoe UI', sans-serif;
+      fill: #fff;
+      font-weight: bold;
+    }
+    .title {
+      font-size: 18px;
+    }
+    .label {
+      font-size: 14px;
+    }
+  </style>
+  <rect class="bg" width="220" height="70" rx="12"/>
+  <text x="50%" y="30" class="text title" dominant-baseline="middle" text-anchor="middle">🧙 Guide</text>
+  <text x="50%" y="52" class="text label" dominant-baseline="middle" text-anchor="middle">ATLANTYDE LAB - MENTOR</text>
+</svg>
