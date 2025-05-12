@@ -1,75 +1,75 @@
-name: 🚀 Release por Componente
+# name: 🚀 Release por Componente
 
-on:
-  push:
-    tags:
-      - 'v*.*.*'
+# on:
+#   push:
+#     tags:
+#       - 'v*.*.*'
 
-jobs:
-  package-components:
-    runs-on: ubuntu-latest
-    outputs:
-      tags: ${{ steps.tag.outputs.version }}
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          ref: ${{ github.ref }}  # Cambia a la rama actual
-          token: ${{ secrets.GITHUB_TOKEN }}
+# jobs:
+#   package-components:
+#     runs-on: ubuntu-latest
+#     outputs:
+#       tags: ${{ steps.tag.outputs.version }}
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v4
+#         with:
+#           fetch-depth: 0
+#           ref: ${{ github.ref }}  # Cambia a la rama actual
+#           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Detect Tag
-        id: tag
-        run: echo "version=${GITHUB_REF##*/}" >> $GITHUB_OUTPUT
+#       - name: Detect Tag
+#         id: tag
+#         run: echo "version=${GITHUB_REF##*/}" >> $GITHUB_OUTPUT
 
-      - name: Detectar cambios por componente
-        run: python scripts/detect_changes.py
+#       - name: Detectar cambios por componente
+#         run: python scripts/detect_changes.py
 
-      - name: Generar notas de release
-        run: python scripts/generate_release_notes.py
+#       - name: Generar notas de release
+#         run: python scripts/generate_release_notes.py
 
-      - name: Crear ZIPs por carpeta modificada
-        run: |
-          mkdir bundles
-          jq -r '.src[]' changes_detected.json | while read component; do
-            zip -r "bundles/${component}.zip" "src/${{technology}}/${component}"
-          done
+#       - name: Crear ZIPs por carpeta modificada
+#         run: |
+#           mkdir bundles
+#           jq -r '.src[]' changes_detected.json | while read component; do
+#             zip -r "bundles/${component}.zip" "src/${{technology}}/${component}"
+#           done
 
-      - name: Subir artefactos
-        uses: actions/upload-artifact@v3
-        with:
-          name: component-bundles
-          path: bundles/
+#       - name: Subir artefactos
+#         uses: actions/upload-artifact@v3
+#         with:
+#           name: component-bundles
+#           path: bundles/
 
-      - name: Subir release_notes.md
-        uses: actions/upload-artifact@v3
-        with:
-          name: release-docs
-          path: release_notes.md
+#       - name: Subir release_notes.md
+#         uses: actions/upload-artifact@v3
+#         with:
+#           name: release-docs
+#           path: release_notes.md
 
-  publish-release:
-    needs: package-components
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
+#   publish-release:
+#     needs: package-components
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v3
 
-      - name: Descargar artefactos
-        uses: actions/download-artifact@v3
-        with:
-          name: component-bundles
-          path: dist/
+#       - name: Descargar artefactos
+#         uses: actions/download-artifact@v3
+#         with:
+#           name: component-bundles
+#           path: dist/
 
-      - name: Descargar release_notes.md
-        uses: actions/download-artifact@v3
-        with:
-          name: release-docs
-          path: dist/
+#       - name: Descargar release_notes.md
+#         uses: actions/download-artifact@v3
+#         with:
+#           name: release-docs
+#           path: dist/
 
-      - name: Publicar en GitHub Releases
-        uses: softprops/action-gh-release@v1
-        with:
-          files: |
-            dist/*.zip
-            dist/release_notes.md
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#       - name: Publicar en GitHub Releases
+#         uses: softprops/action-gh-release@v1
+#         with:
+#           files: |
+#             dist/*.zip
+#             dist/release_notes.md
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

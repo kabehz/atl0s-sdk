@@ -1,131 +1,454 @@
-site_name: "ATLANTYDE ACADEMY Foundation"
-site_url: "https://kabehz.github.io/legal-validator/"
-site_description: "Sociedad Cooperativa en Legaltech, EU Digital Compliance,Formación y Transformación Digital sirviendo infraestructura para la validación legal semántica y soberanía normativa europea basada en NLP + DevSecOps."
-site_author: ""
-
+site_name: ATLANTYDE ACADEMY Foundation
+site_url: https://kabehz.github.io/atl0s/
+site_description: "Sociedad Cooperativa en Legaltech, EU Digital Compliance,Formaci\xF3\
+  n y Transformaci\xF3n Digital sirviendo infraestructura para la validaci\xF3n legal\
+  \ sem\xE1ntica y soberan\xEDa normativa europea basada en NLP + DevSecOps."
+site_author: Kabehz
 theme:
   name: material
+  logo: assets/branding/header-main.png
+  favicon: assets/branding/favicon.ico
   palette:
-    - scheme: default
-      primary: "blue grey"
-      accent: "indigo"
-      toggle:
-        icon: material/weather-night
-        name: Modo oscuro
-    - scheme: slate
-      primary: "indigo"
-      accent: "blue grey"
-      toggle:
-        icon: material/weather-sunny
-        name: Modo claro
+    scheme: default
+    primary: blue
+    accent: pink
+  features:
+  - navigation.tabs
+  - navigation.expand
+  - navigation.top
+  - navigation.sections
+  - navigation.tracking
+  - navigation.instant
+  - toc.integrate
+  - search.highlight
+  - search.share
+  - search.suggest
+  - search.share
   font:
     text: Roboto
-    code: Fira Code
-  favicon: assets/img/favicon.ico
-  logo: assets/img/logo-atlantyde.png
-  features:
-    - navigation.instant
-    - navigation.tabs
-    - navigation.top
-    - toc.integrate
-    - content.code.copy
-    - search.highlight
-    - search.share
-
-plugins:
-  - search
-  - git-revision-date-localized
-  - minify:
-      minify_html: true
-  - mermaid2
-
-
-extra_javascript:
-  - https://cdnjs.cloudflare.com/ajax/libs/scrollreveal/4.0.9/scrollreveal.min.js
-  - https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.0.1/intro.min.js
-
+    code: Roboto Mono
+  language: es
+  icon:
+    repo: fontawesome/brands/github
+    edit: fontawesome/solid/edit
+    collapse: fontawesome/solid/caret-down
+    expand: fontawesome/solid/caret-up
+    nav:
+      collapse: fontawesome/solid/caret-down
+      expand: fontawesome/solid/caret-up
 extra_css:
-  - assets/css/animations.css
-  - https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.0.1/introjs.min.css
-  - assets/css/markdown.css
-  - assets/css/mermaid.css
-
-extra:
-  social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/kabehz/atlantyde-kit-adoption
-    - icon: fontawesome/brands/linkedin
-      link: https://linkedin.com/in/jaimesilvagonzalez
-
+- assets/css/animations.css
+- assets/branding/nav-style.csshttps://cdnjs.cloudflare.com/ajax/libs/intro.js/7.0.1/introjs.min.css
+- assets/css/markdown.css
+- assets/css/mermaid.css
+extra_javascript:
+- assets/js/intersection-observer.js
+- assets/branding/scroll-effect.js
+- https://cdnjs.cloudflare.com/ajax/libs/scrollreveal/4.0.9/scrollreveal.min.js
+- https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.0.1/intro.min.js
 markdown_extensions:
-  - toc:
-      permalink: true
-  - admonition
-  - codehilite
-  - footnotes
-  - def_list
-  - pymdownx.highlight
-  - pymdownx.superfences
-  - pymdownx.inlinehilite
-  - pymdownx.tabbed
-  - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
-
+- toc
+- tables
+- attr_list
+- admonition
+- codehilite
+- footnotes
+- def_list
+- pymdownx.highlight
+- pymdownx.superfences
+- pymdownx.inlinehilite
+- pymdownx.tabbed
+- pymdownx.details
+- pymdownx.emoji:
+    emoji_index: !!python/name:pymdownx.emoji.twemoji ''
+    emoji_generator: !!python/name:pymdownx.emoji.to_svg ''
+plugins:
+- search:
+    index: true
+- minify:
+    minify_html: true
+    minify_css: true
+    minify_js: true
+- mermaid2:
+    theme: default
+    themeVariables:
+      primaryColor: '#4A90E2'
+      edgeLabelBackground: '#ffffff'
+      tertiaryColor: '#ffffff'
+      noteBkgColor: '#ffffff'
+      noteTextColor: '#000000'
+- admonition:
+    css_class: admonition
+    title_css_class: admonition-title
+- material/get-deps
 nav:
-  - 🧭 Navegación Estratégica:
-      - Panel Semántico: panel_semantico.md
-  - Impacto Público:
-      - Contribución Social: components/impacto_social.md
-  - Inicio: index.md
-  - Bienvenida IA: ATLANTYDE_ONEPAGER.md
-  - Onboarding: ONBOARDING_GITHUB.md
-  - MegaPrompt Cognitivo: MEGAPROMPT_ATLANTYDE.md
-  - Estructura: estructura_taxonomica.md
-  - Mapa Semántico: SEMANTIC_MAP.md
-  - Base Legal: legal/index.md
-  - ALM SDLC ATLANTYDE:
-      - Introducción: index.md
-      - Arquitectura: arquitectura.md
-      - CI/CD:
-          - cicd.md
-      - Herramientas:
-          - CLI: cli.md
-          - Docker: docker.md
-          - MicroK8s: microk8s.md
-      - Guía de Despliegue: deploy_doc_guide.md
-      - Validación Semántica:
-          - Introducción: semantic_validation/index.md
-          - Arquitectura: semantic_validation/architecture.md
-          - Herramientas: semantic_validation/tools.md
-          - Despliegue: semantic_validation/deploy.md
-  - Validación Legal: validator/index.md
-  - Contribución: CONTRIBUTIN.md
-  - Contratos Inteligentes:
-      - Introducción: smart_contracts/example_contract.md
-      - Transferencia: smart_contracts/contract_transferencia.md
-      - Validación: smart_contracts/contract_validacion.md
-  - Políticas:
-      - Seguridad: policies/security.md
-      - Validación: policies/validation.md
-      - Cumplimiento: policies/compliance.md
-  - Recursos:
-      - Documentación: resources/documentation.md
-      - Herramientas: resources/tools.md
-      - Tutoriales: resources/tutorials.md
-  - Comunidad:
-      - GitHub: https://github.com/kabehz/atlantyde-kit-adoption
-      - LinkedIn: https://linkedin.com/in/jaimesilvagonzalez
-      - Twitter: https://twitter.com/atlantydefoundation
-  - Contacto: contacto.md
-  - Licencia: LICENSE.md
-  - Changelog: CHANGELOG.md
-  - FAQ: faq.md
-  - Contribuidores: contributors.md
-  - Glosario: glosario.md
-  - Créditos: credits.md
-  - Aviso Legal: aviso_legal.md
-  - Política de Privacidad: politica_privacidad.md
-  - Política de Cookies: politica_cookies.md
-  - Términos de Uso: terminos_uso.md
-  - Accesibilidad: accesibilidad.md
+- Changelog v0.5.2-historia: ./CHANGELOG_v0.5.2-historia.md
+- Changelog v0.6.0-labs: ./CHANGELOG_v0.6.0-labs.md
+- Contributing: ./CONTRIBUTING.md
+- Getting started: ./GETTING_STARTED.md
+- License: ./LICENSE.md
+- Readme codespaces: ./README_codespaces.md
+- Readme historia autonarrativa: ./README_historia_autonarrativa.md
+- Accesibilidad: ./accesibilidad.md
+- Aviso legal: ./aviso_legal.md
+- Commit-template-v0.5.2: ./commit-template-v0.5.2.md
+- Contaco: ./contaco.md
+- Contributors: ./contributors.md
+- Credits: ./credits.md
+- Faq: ./faq.md
+- Glosario: ./glosario.md
+- Index: ./index.md
+- Narrativa-viva: ./narrativa-viva.md
+- Panel semantico: ./panel_semantico.md
+- Politica cookies: ./politica_cookies.md
+- Politica privacidad: ./politica_privacidad.md
+- Readme-historia-snippet: ./readme-historia-snippet.md
+- Terminos uso: ./terminos_uso.md
+- Validator:
+  - Index: validator/index.md
+- Smart Contracts:
+  - Readme: smart_contracts/README.md
+  - Contract transferencia: smart_contracts/contract_transferencia.md
+  - Contract validation: smart_contracts/contract_validation.md
+  - Example contract: smart_contracts/example_contract.md
+- Legal:
+  - Index: legal/index.md
+- Academy:
+  - Readme: academy/README.md
+  - Readme academy: academy/README_ACADEMY.md
+  - Dashboard academy: academy/dashboard_academy.md
+- Academy/Labs/Masterroadmap:
+  - Readme: academy/labs/MasterRoadmap/README.md
+- Academy/Uxui/Lab-141:
+  - Readme: academy/UXUI/LAB-141/README.md
+  - Challenge: academy/UXUI/LAB-141/challenge.md
+  - Evaluacion: academy/UXUI/LAB-141/evaluacion.md
+  - Tech-stack: academy/UXUI/LAB-141/tech-stack.md
+- Academy/Uxui/Lab-121:
+  - Readme: academy/UXUI/LAB-121/README.md
+  - Challenge: academy/UXUI/LAB-121/challenge.md
+  - Evaluacion: academy/UXUI/LAB-121/evaluacion.md
+  - Tech-stack: academy/UXUI/LAB-121/tech-stack.md
+- Academy/Uxui/Lab-132:
+  - Readme: academy/UXUI/LAB-132/README.md
+  - Challenge: academy/UXUI/LAB-132/challenge.md
+  - Evaluacion: academy/UXUI/LAB-132/evaluacion.md
+  - Tech-stack: academy/UXUI/LAB-132/tech-stack.md
+- Academy/Uxui/Lab-122:
+  - Readme: academy/UXUI/LAB-122/README.md
+  - Challenge: academy/UXUI/LAB-122/challenge.md
+  - Evaluacion: academy/UXUI/LAB-122/evaluacion.md
+  - Tech-stack: academy/UXUI/LAB-122/tech-stack.md
+- Academy/Uxui/Lab-133:
+  - Readme: academy/UXUI/LAB-133/README.md
+  - Challenge: academy/UXUI/LAB-133/challenge.md
+  - Evaluacion: academy/UXUI/LAB-133/evaluacion.md
+  - Tech-stack: academy/UXUI/LAB-133/tech-stack.md
+- Academy/Uxui/Lab-131:
+  - Readme: academy/UXUI/LAB-131/README.md
+  - Challenge: academy/UXUI/LAB-131/challenge.md
+  - Evaluacion: academy/UXUI/LAB-131/evaluacion.md
+  - Tech-stack: academy/UXUI/LAB-131/tech-stack.md
+- Academy/Uxui/Lab-142:
+  - Readme: academy/UXUI/LAB-142/README.md
+  - Challenge: academy/UXUI/LAB-142/challenge.md
+  - Evaluacion: academy/UXUI/LAB-142/evaluacion.md
+  - Tech-stack: academy/UXUI/LAB-142/tech-stack.md
+- Academy/Uxui/Lab-123:
+  - Readme: academy/UXUI/LAB-123/README.md
+  - Challenge: academy/UXUI/LAB-123/challenge.md
+  - Evaluacion: academy/UXUI/LAB-123/evaluacion.md
+  - Tech-stack: academy/UXUI/LAB-123/tech-stack.md
+- Academy/Uxui/Lab-143:
+  - Readme: academy/UXUI/LAB-143/README.md
+  - Challenge: academy/UXUI/LAB-143/challenge.md
+  - Evaluacion: academy/UXUI/LAB-143/evaluacion.md
+  - Tech-stack: academy/UXUI/LAB-143/tech-stack.md
+- Academy/Cybersec/Lab-103:
+  - Readme: academy/CyberSec/LAB-103/README.md
+  - Challenge: academy/CyberSec/LAB-103/challenge.md
+  - Evaluacion: academy/CyberSec/LAB-103/evaluacion.md
+  - Tech-stack: academy/CyberSec/LAB-103/tech-stack.md
+- Academy/Cybersec/Lab-093:
+  - Readme: academy/CyberSec/LAB-093/README.md
+  - Challenge: academy/CyberSec/LAB-093/challenge.md
+  - Evaluacion: academy/CyberSec/LAB-093/evaluacion.md
+  - Tech-stack: academy/CyberSec/LAB-093/tech-stack.md
+- Academy/Cybersec/Lab-113:
+  - Readme: academy/CyberSec/LAB-113/README.md
+  - Challenge: academy/CyberSec/LAB-113/challenge.md
+  - Evaluacion: academy/CyberSec/LAB-113/evaluacion.md
+  - Tech-stack: academy/CyberSec/LAB-113/tech-stack.md
+- Academy/Cybersec/Lab-101:
+  - Readme: academy/CyberSec/LAB-101/README.md
+  - Challenge: academy/CyberSec/LAB-101/challenge.md
+  - Evaluacion: academy/CyberSec/LAB-101/evaluacion.md
+  - Tech-stack: academy/CyberSec/LAB-101/tech-stack.md
+- Academy/Cybersec/Lab-091:
+  - Readme: academy/CyberSec/LAB-091/README.md
+  - Challenge: academy/CyberSec/LAB-091/challenge.md
+  - Evaluacion: academy/CyberSec/LAB-091/evaluacion.md
+  - Tech-stack: academy/CyberSec/LAB-091/tech-stack.md
+- Academy/Cybersec/Lab-111:
+  - Readme: academy/CyberSec/LAB-111/README.md
+  - Challenge: academy/CyberSec/LAB-111/challenge.md
+  - Evaluacion: academy/CyberSec/LAB-111/evaluacion.md
+  - Tech-stack: academy/CyberSec/LAB-111/tech-stack.md
+- Academy/Cybersec/Lab-112:
+  - Readme: academy/CyberSec/LAB-112/README.md
+  - Challenge: academy/CyberSec/LAB-112/challenge.md
+  - Evaluacion: academy/CyberSec/LAB-112/evaluacion.md
+  - Tech-stack: academy/CyberSec/LAB-112/tech-stack.md
+- Academy/Cybersec/Lab-092:
+  - Readme: academy/CyberSec/LAB-092/README.md
+  - Challenge: academy/CyberSec/LAB-092/challenge.md
+  - Evaluacion: academy/CyberSec/LAB-092/evaluacion.md
+  - Tech-stack: academy/CyberSec/LAB-092/tech-stack.md
+- Academy/Cybersec/Lab-102:
+  - Readme: academy/CyberSec/LAB-102/README.md
+  - Challenge: academy/CyberSec/LAB-102/challenge.md
+  - Evaluacion: academy/CyberSec/LAB-102/evaluacion.md
+  - Tech-stack: academy/CyberSec/LAB-102/tech-stack.md
+- Academy/Devops/Lab-042:
+  - Readme: academy/DevOps/LAB-042/README.md
+  - Challenge: academy/DevOps/LAB-042/challenge.md
+  - Evaluacion: academy/DevOps/LAB-042/evaluacion.md
+  - Tech-stack: academy/DevOps/LAB-042/tech-stack.md
+- Academy/Devops/Lab-043:
+  - Readme: academy/DevOps/LAB-043/README.md
+  - Challenge: academy/DevOps/LAB-043/challenge.md
+  - Evaluacion: academy/DevOps/LAB-043/evaluacion.md
+  - Tech-stack: academy/DevOps/LAB-043/tech-stack.md
+- Academy/Devops/Lab-032:
+  - Readme: academy/DevOps/LAB-032/README.md
+  - Challenge: academy/DevOps/LAB-032/challenge.md
+  - Evaluacion: academy/DevOps/LAB-032/evaluacion.md
+  - Tech-stack: academy/DevOps/LAB-032/tech-stack.md
+- Academy/Devops/Lab-031:
+  - Readme: academy/DevOps/LAB-031/README.md
+  - Challenge: academy/DevOps/LAB-031/challenge.md
+  - Evaluacion: academy/DevOps/LAB-031/evaluacion.md
+  - Tech-stack: academy/DevOps/LAB-031/tech-stack.md
+- Academy/Devops/Lab-051:
+  - Readme: academy/DevOps/LAB-051/README.md
+  - Challenge: academy/DevOps/LAB-051/challenge.md
+  - Evaluacion: academy/DevOps/LAB-051/evaluacion.md
+  - Tech-stack: academy/DevOps/LAB-051/tech-stack.md
+- Academy/Devops/Lab-053:
+  - Readme: academy/DevOps/LAB-053/README.md
+  - Challenge: academy/DevOps/LAB-053/challenge.md
+  - Evaluacion: academy/DevOps/LAB-053/evaluacion.md
+  - Tech-stack: academy/DevOps/LAB-053/tech-stack.md
+- Academy/Devops/Lab-052:
+  - Readme: academy/DevOps/LAB-052/README.md
+  - Challenge: academy/DevOps/LAB-052/challenge.md
+  - Evaluacion: academy/DevOps/LAB-052/evaluacion.md
+  - Tech-stack: academy/DevOps/LAB-052/tech-stack.md
+- Academy/Devops/Lab-041:
+  - Readme: academy/DevOps/LAB-041/README.md
+  - Challenge: academy/DevOps/LAB-041/challenge.md
+  - Evaluacion: academy/DevOps/LAB-041/evaluacion.md
+  - Tech-stack: academy/DevOps/LAB-041/tech-stack.md
+- Academy/Devops/Lab-033:
+  - Readme: academy/DevOps/LAB-033/README.md
+  - Challenge: academy/DevOps/LAB-033/challenge.md
+  - Evaluacion: academy/DevOps/LAB-033/evaluacion.md
+  - Tech-stack: academy/DevOps/LAB-033/tech-stack.md
+- Academy/Dataml/Lab-063:
+  - Readme: academy/DataML/LAB-063/README.md
+  - Challenge: academy/DataML/LAB-063/challenge.md
+  - Evaluacion: academy/DataML/LAB-063/evaluacion.md
+  - Tech-stack: academy/DataML/LAB-063/tech-stack.md
+- Academy/Dataml/Lab-081:
+  - Readme: academy/DataML/LAB-081/README.md
+  - Challenge: academy/DataML/LAB-081/challenge.md
+  - Evaluacion: academy/DataML/LAB-081/evaluacion.md
+  - Tech-stack: academy/DataML/LAB-081/tech-stack.md
+- Academy/Dataml/Lab-082:
+  - Readme: academy/DataML/LAB-082/README.md
+  - Challenge: academy/DataML/LAB-082/challenge.md
+  - Evaluacion: academy/DataML/LAB-082/evaluacion.md
+  - Tech-stack: academy/DataML/LAB-082/tech-stack.md
+- Academy/Dataml/Lab-071:
+  - Readme: academy/DataML/LAB-071/README.md
+  - Challenge: academy/DataML/LAB-071/challenge.md
+  - Evaluacion: academy/DataML/LAB-071/evaluacion.md
+  - Tech-stack: academy/DataML/LAB-071/tech-stack.md
+- Academy/Dataml/Lab-072:
+  - Readme: academy/DataML/LAB-072/README.md
+  - Challenge: academy/DataML/LAB-072/challenge.md
+  - Evaluacion: academy/DataML/LAB-072/evaluacion.md
+  - Tech-stack: academy/DataML/LAB-072/tech-stack.md
+- Academy/Dataml/Lab-062:
+  - Readme: academy/DataML/LAB-062/README.md
+  - Challenge: academy/DataML/LAB-062/challenge.md
+  - Evaluacion: academy/DataML/LAB-062/evaluacion.md
+  - Tech-stack: academy/DataML/LAB-062/tech-stack.md
+- Academy/Dataml/Lab-073:
+  - Readme: academy/DataML/LAB-073/README.md
+  - Challenge: academy/DataML/LAB-073/challenge.md
+  - Evaluacion: academy/DataML/LAB-073/evaluacion.md
+  - Tech-stack: academy/DataML/LAB-073/tech-stack.md
+- Academy/Dataml/Lab-061:
+  - Readme: academy/DataML/LAB-061/README.md
+  - Challenge: academy/DataML/LAB-061/challenge.md
+  - Evaluacion: academy/DataML/LAB-061/evaluacion.md
+  - Tech-stack: academy/DataML/LAB-061/tech-stack.md
+- Academy/Dataml/Lab-083:
+  - Readme: academy/DataML/LAB-083/README.md
+  - Challenge: academy/DataML/LAB-083/challenge.md
+  - Evaluacion: academy/DataML/LAB-083/evaluacion.md
+  - Tech-stack: academy/DataML/LAB-083/tech-stack.md
+- Academy/Masterroadmap/Lab-M04:
+  - Readme: academy/MasterRoadmap/LAB-M04/README.md
+  - Challenge: academy/MasterRoadmap/LAB-M04/challenge.md
+  - Evaluacion: academy/MasterRoadmap/LAB-M04/evaluacion.md
+  - Tech-stack: academy/MasterRoadmap/LAB-M04/tech-stack.md
+- Academy/Masterroadmap/Lab-M00-Perfildigital:
+  - Readme: academy/MasterRoadmap/LAB-M00-PerfilDigital/README.md
+  - Readme lab000 actualizado: academy/MasterRoadmap/LAB-M00-PerfilDigital/README_LAB000_ACTUALIZADO.md
+  - Readme v1: academy/MasterRoadmap/LAB-M00-PerfilDigital/README_v1.md
+- Academy/Masterroadmap/Lab-M05:
+  - Readme: academy/MasterRoadmap/LAB-M05/README.md
+  - Challenge: academy/MasterRoadmap/LAB-M05/challenge.md
+  - Evaluacion: academy/MasterRoadmap/LAB-M05/evaluacion.md
+  - Tech-stack: academy/MasterRoadmap/LAB-M05/tech-stack.md
+- Academy/Masterroadmap/Lab-M02:
+  - Readme: academy/MasterRoadmap/LAB-M02/README.md
+  - Challenge: academy/MasterRoadmap/LAB-M02/challenge.md
+  - Evaluacion: academy/MasterRoadmap/LAB-M02/evaluacion.md
+  - Tech-stack: academy/MasterRoadmap/LAB-M02/tech-stack.md
+- Academy/Masterroadmap/Lab-M01:
+  - Readme: academy/MasterRoadmap/LAB-M01/README.md
+  - Challenge: academy/MasterRoadmap/LAB-M01/challenge.md
+  - Evaluacion: academy/MasterRoadmap/LAB-M01/evaluacion.md
+  - Tech-stack: academy/MasterRoadmap/LAB-M01/tech-stack.md
+- Academy/Masterroadmap/Lab-M03:
+  - Readme: academy/MasterRoadmap/LAB-M03/README.md
+  - Challenge: academy/MasterRoadmap/LAB-M03/challenge.md
+  - Evaluacion: academy/MasterRoadmap/LAB-M03/evaluacion.md
+  - Tech-stack: academy/MasterRoadmap/LAB-M03/tech-stack.md
+- Academy/Legaltech/Lab-163:
+  - Readme: academy/LegalTech/LAB-163/README.md
+  - Challenge: academy/LegalTech/LAB-163/challenge.md
+  - Evaluacion: academy/LegalTech/LAB-163/evaluacion.md
+  - Tech-stack: academy/LegalTech/LAB-163/tech-stack.md
+- Academy/Legaltech/Lab-171:
+  - Readme: academy/LegalTech/LAB-171/README.md
+  - Challenge: academy/LegalTech/LAB-171/challenge.md
+  - Evaluacion: academy/LegalTech/LAB-171/evaluacion.md
+  - Tech-stack: academy/LegalTech/LAB-171/tech-stack.md
+- Academy/Legaltech/Lab-173:
+  - Readme: academy/LegalTech/LAB-173/README.md
+  - Challenge: academy/LegalTech/LAB-173/challenge.md
+  - Evaluacion: academy/LegalTech/LAB-173/evaluacion.md
+  - Tech-stack: academy/LegalTech/LAB-173/tech-stack.md
+- Academy/Legaltech/Lab-161:
+  - Readme: academy/LegalTech/LAB-161/README.md
+  - Challenge: academy/LegalTech/LAB-161/challenge.md
+  - Evaluacion: academy/LegalTech/LAB-161/evaluacion.md
+  - Tech-stack: academy/LegalTech/LAB-161/tech-stack.md
+- Academy/Legaltech/Lab-162:
+  - Readme: academy/LegalTech/LAB-162/README.md
+  - Challenge: academy/LegalTech/LAB-162/challenge.md
+  - Evaluacion: academy/LegalTech/LAB-162/evaluacion.md
+  - Tech-stack: academy/LegalTech/LAB-162/tech-stack.md
+- Academy/Legaltech/Lab-153:
+  - Readme: academy/LegalTech/LAB-153/README.md
+  - Challenge: academy/LegalTech/LAB-153/challenge.md
+  - Evaluacion: academy/LegalTech/LAB-153/evaluacion.md
+  - Tech-stack: academy/LegalTech/LAB-153/tech-stack.md
+- Academy/Legaltech/Lab-151:
+  - Readme: academy/LegalTech/LAB-151/README.md
+  - Challenge: academy/LegalTech/LAB-151/challenge.md
+  - Evaluacion: academy/LegalTech/LAB-151/evaluacion.md
+  - Tech-stack: academy/LegalTech/LAB-151/tech-stack.md
+- Academy/Legaltech/Lab-152:
+  - Readme: academy/LegalTech/LAB-152/README.md
+  - Challenge: academy/LegalTech/LAB-152/challenge.md
+  - Evaluacion: academy/LegalTech/LAB-152/evaluacion.md
+  - Tech-stack: academy/LegalTech/LAB-152/tech-stack.md
+- Academy/Legaltech/Lab-172:
+  - Readme: academy/LegalTech/LAB-172/README.md
+  - Challenge: academy/LegalTech/LAB-172/challenge.md
+  - Evaluacion: academy/LegalTech/LAB-172/evaluacion.md
+  - Tech-stack: academy/LegalTech/LAB-172/tech-stack.md
+- Academy/Fullstack/Lab-013:
+  - Readme: academy/FullStack/LAB-013/README.md
+  - Challenge: academy/FullStack/LAB-013/challenge.md
+  - Evaluacion: academy/FullStack/LAB-013/evaluacion.md
+  - Tech-stack: academy/FullStack/LAB-013/tech-stack.md
+- Academy/Fullstack/Lab-011:
+  - Readme: academy/FullStack/LAB-011/README.md
+  - Challenge: academy/FullStack/LAB-011/challenge.md
+  - Evaluacion: academy/FullStack/LAB-011/evaluacion.md
+  - Tech-stack: academy/FullStack/LAB-011/tech-stack.md
+- Academy/Fullstack/Lab-021:
+  - Readme: academy/FullStack/LAB-021/README.md
+  - Challenge: academy/FullStack/LAB-021/challenge.md
+  - Evaluacion: academy/FullStack/LAB-021/evaluacion.md
+  - Tech-stack: academy/FullStack/LAB-021/tech-stack.md
+- Academy/Fullstack/Lab-022:
+  - Readme: academy/FullStack/LAB-022/README.md
+  - Challenge: academy/FullStack/LAB-022/challenge.md
+  - Evaluacion: academy/FullStack/LAB-022/evaluacion.md
+  - Tech-stack: academy/FullStack/LAB-022/tech-stack.md
+- Academy/Fullstack/Lab-001:
+  - Readme: academy/FullStack/LAB-001/README.md
+  - Challenge: academy/FullStack/LAB-001/challenge.md
+  - Evaluacion: academy/FullStack/LAB-001/evaluacion.md
+  - Tech-stack: academy/FullStack/LAB-001/tech-stack.md
+- Academy/Fullstack/Lab-023:
+  - Readme: academy/FullStack/LAB-023/README.md
+  - Challenge: academy/FullStack/LAB-023/challenge.md
+  - Evaluacion: academy/FullStack/LAB-023/evaluacion.md
+  - Tech-stack: academy/FullStack/LAB-023/tech-stack.md
+- Academy/Fullstack/Lab-002:
+  - Readme: academy/FullStack/LAB-002/README.md
+  - Challenge: academy/FullStack/LAB-002/challenge.md
+  - Evaluacion: academy/FullStack/LAB-002/evaluacion.md
+  - Tech-stack: academy/FullStack/LAB-002/tech-stack.md
+- Academy/Fullstack/Lab-003:
+  - Readme: academy/FullStack/LAB-003/README.md
+  - Challenge: academy/FullStack/LAB-003/challenge.md
+  - Evaluacion: academy/FullStack/LAB-003/evaluacion.md
+  - Tech-stack: academy/FullStack/LAB-003/tech-stack.md
+- Academy/Fullstack/Lab-012:
+  - Readme: academy/FullStack/LAB-012/README.md
+  - Challenge: academy/FullStack/LAB-012/challenge.md
+  - Evaluacion: academy/FullStack/LAB-012/evaluacion.md
+  - Tech-stack: academy/FullStack/LAB-012/tech-stack.md
+- Learning:
+  - Index: learning/index.md
+- Resources:
+  - Megaprompt atlantyde: resources/MEGAPROMPT_ATLANTYDE.md
+  - Onboarding github: resources/ONBOARDING_GITHUB.md
+  - Semantic map: resources/SEMANTIC_MAP.md
+  - Arquitectura: resources/arquitectura.md
+  - Cicd: resources/cicd.md
+  - Deploy doc guide: resources/deploy_doc_guide.md
+  - Documentation: resources/documentation.md
+  - Estructura taxonomica: resources/estructura_taxonomica.md
+  - Tools: resources/tools.md
+  - Tutorials: resources/tutorials.md
+- Resources/Tools:
+  - Astro: resources/tools/astro.md
+  - Cli: resources/tools/cli.md
+  - Docker: resources/tools/docker.md
+  - Index: resources/tools/index.md
+  - Microk8s: resources/tools/microk8s.md
+  - Mkdocs: resources/tools/mkdocs.md
+  - Python: resources/tools/python.md
+- Semantic Validation:
+  - Architecture: semantic_validation/architecture.md
+  - Deploy: semantic_validation/deploy.md
+  - Index: semantic_validation/index.md
+  - Tools: semantic_validation/tools.md
+- Branding:
+  - Changelog: branding/CHANGELOG.md
+  - Qa branding: branding/QA_BRANDING.md
+  - Branding-onboarding: branding/branding-onboarding.md
+  - Commit-template: branding/commit-template.md
+  - Narrativa-site: branding/narrativa-site.md
+- Roles:
+  - Nlp engineer: roles/nlp_engineer.md
