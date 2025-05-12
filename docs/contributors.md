@@ -64,3 +64,12 @@ O activa el plugin de MkDocs `git-authors-plugin` para integrar directamente el 
 
 ¿Quieres aparecer aquí? ¡Empieza con un [issue de bienvenida](https://github.com/kabehz/atl0s-sdk/issues/new/choose)!
 
+---
+
+## 🙌 Créditos
+
+Gracias a todas las personas, tecnologías y organizaciones que hicieron posible ATLANTYDE.
+
+- Kabehz | Arquitectura cognitiva y legal
+- Fundación ATLANTYDE | Visión y soporte
+- Comunidad GitHub | Colaboraciones abiertas

@@ -1,8 +1,6 @@
 site_name: ATLANTYDE ACADEMY Foundation
 site_url: https://kabehz.github.io/atl0s/
-site_description: "Sociedad Cooperativa en Legaltech, EU Digital Compliance,Formaci\xF3\
-  n y Transformaci\xF3n Digital sirviendo infraestructura para la validaci\xF3n legal\
-  \ sem\xE1ntica y soberan\xEDa normativa europea basada en NLP + DevSecOps."
+site_description: Infraestructura legal semántica para soberanía europea (NLP + DevSecOps).
 site_author: Kabehz
 theme:
   name: material
@@ -16,35 +14,23 @@ theme:
   - navigation.tabs
   - navigation.expand
   - navigation.top
-  - navigation.sections
-  - navigation.tracking
-  - navigation.instant
   - toc.integrate
   - search.highlight
-  - search.share
   - search.suggest
   font:
     text: Roboto
     code: Roboto Mono
   language: es
-  icon:
-    repo: fontawesome/brands/github
-    edit: fontawesome/solid/edit
-    collapse: fontawesome/solid/caret-down
-    expand: fontawesome/solid/caret-up
-    nav:
-      collapse: fontawesome/solid/caret-down
-      expand: fontawesome/solid/caret-up
 extra_css:
 - assets/css/animations.css
 - assets/branding/nav-style.css
-- https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.0.1/introjs.min.css
 - assets/css/markdown.css
 - assets/css/mermaid.css
 extra_javascript:
-- assets/js/intersection-observer.js
+- assets/js/leaderboard.js
+- assets/js/nav-iteraction.js
 - assets/branding/scroll-effect.js
-- https://cdnjs.cloudflare.com/ajax/libs/scrollreveal/4.0.9/scrollreveal.min.js
+- assets/js/intersection-observer.js
 - https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.0.1/intro.min.js
 extra:
   social:
@@ -69,42 +55,25 @@ markdown_extensions:
     emoji_index: !!python/name:pymdownx.emoji.twemoji ''
     emoji_generator: !!python/name:pymdownx.emoji.to_svg ''
 plugins:
-- search:
-    index: true
+- search
 - minify:
     minify_html: true
-    minify_css: true
-    minify_js: true
-- mermaid2:
-    theme: default
-    themeVariables:
-      primaryColor: '#4A90E2'
-      edgeLabelBackground: '#ffffff'
-      tertiaryColor: '#ffffff'
-      noteBkgColor: '#ffffff'
-      noteTextColor: '#000000'
+- mermaid2
 nav:
-- Changelog v0.5.2-historia: ./CHANGELOG_v0.5.2-historia.md
-- Changelog v0.6.0-labs: ./CHANGELOG_v0.6.0-labs.md
 - Contributing: ./CONTRIBUTING.md
 - Getting started: ./GETTING_STARTED.md
 - License: ./LICENSE.md
-- Readme codespaces: ./README_codespaces.md
-- Readme historia autonarrativa: ./README_historia_autonarrativa.md
 - Accesibilidad: ./accesibilidad.md
 - Aviso legal: ./aviso_legal.md
-- Commit-template-v0.5.2: ./commit-template-v0.5.2.md
 - Contaco: ./contaco.md
 - Contributors: ./contributors.md
 - Credits: ./credits.md
 - Faq: ./faq.md
 - Glosario: ./glosario.md
 - Index: ./index.md
-- Narrativa-viva: ./narrativa-viva.md
 - Panel semantico: ./panel_semantico.md
 - Politica cookies: ./politica_cookies.md
 - Politica privacidad: ./politica_privacidad.md
-- Readme-historia-snippet: ./readme-historia-snippet.md
 - Terminos uso: ./terminos_uso.md
 - Validator:
   - Index: validator/index.md
