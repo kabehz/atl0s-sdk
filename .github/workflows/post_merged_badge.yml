@@ -26,13 +26,13 @@ jobs:
 
       - name: Commit cambios si README modificado
         run: |
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
+          git config user.name "Kabehz"
+          git config user.email "innovation@atlantyde.eu"
           git add README.md
           git diff --cached --quiet || git commit -m "🔖 Inserción automática de badges MkDocs tras merge"
-          REPO_URL="https://x-access-token:${GITHUB_TOKEN}'@github.com/${GITHUB_REPOSITORY}.git"
+          REPO_URL="https://x-access-token:$GH_PAT@github.com/$GITHUB_REPOSITORY.git"
           git push "$REPO_URL" HEAD:${GITHUB_REF#refs/heads/}
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+          GH_PAT: ${{ secrets.GH_PAT }}
           GITHUB_REF: ${{ github.ref }}
           GITHUB_REPOSITORY: ${{ github.repository }}
