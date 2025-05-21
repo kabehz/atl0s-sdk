@@ -1,0 +1,26 @@
+
+name: 🧠 Atl0s Docs Validator (DRY RUN)
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Modo de generación (semantic, structured, append-badges)"
+        required: true
+        default: "semantic"
+
+jobs:
+  validar-dry-run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ⬇️ Clonar repositorio
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 🐳 Construir contenedor atlos-docs
+        run: docker build -t atlos-docs actions/atlos-docs
+
+      - name: 🧪 Ejecutar atlos-docs en modo dry-run
+        run: docker run --rm -v "${{ github.workspace }}:/app" atlos-docs ${{ github.event.inputs.mode }} --dry-run

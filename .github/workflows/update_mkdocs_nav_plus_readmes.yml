@@ -27,15 +27,14 @@ jobs:
 
       - name: Run auto-navigator
         run: python scripts/generate_mkdocs_structured.py
-
       - name: Insert dynamic README extensions
         run: bash scripts/insert_dynamic_readmes.sh
-
+      - name: Insertar badges de MkDocs
+        run: bash scripts/insert_mkdocs_badges.sh     
       - name: Detect changes
         id: check_diff
         run: |
           git diff --quiet mkdocs.yml README.md || echo "modified=true" >> $GITHUB_OUTPUT
-
       - name: Commit and push if changed
         if: steps.check_diff.outputs.modified == 'true'
         run: |

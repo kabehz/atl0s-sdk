@@ -30,7 +30,7 @@ jobs:
           git config user.email "innovation@atlantyde.eu"
           git add README.md
           git diff --cached --quiet || git commit -m "🔖 Inserción automática de badges MkDocs tras merge"
-          REPO_URL="https://x-access-token:$GH_PAT@github.com/$GITHUB_REPOSITORY.git"
+          REPO_URL="https://x-access-token:$GH_PAT@github.com/$GITHUB_REPOSITORY}.git"
           git push "$REPO_URL" HEAD:${GITHUB_REF#refs/heads/}
         env:
           GH_PAT: ${{ secrets.GH_PAT }}

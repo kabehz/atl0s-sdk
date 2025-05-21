@@ -1,0 +1,42 @@
+
+name: 🧠 Atl0s Docs Generator
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 8 * * 1'
+
+jobs:
+  generar-documentacion:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ⬇️ Clonar repositorio
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 🐳 Construir contenedor atlos-docs
+        run: docker build -t atlos-docs actions/atlos-docs
+
+      - name: 🧠 Ejecutar atlos-docs en modo semantic
+        run: docker run --rm -v "${{ github.workspace }}:/app" atlos-docs semantic
+
+      - name: 🛠️ Configurar Git
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+
+      - name: 📤 Crear PR si hay cambios
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GH_PAT }}
+          commit-message: "docs: 🧠 Actualización semántica mkdocs.yml"
+          title: "📘 PR Automático: mkdocs.yml actualizado"
+          body: |
+            Este PR fue generado por `atlos-docs` en modo `semantic`.
+
+            Requiere revisión humana antes del merge.
+          branch: auto/update-mkdocs
+          delete-branch: true
+        
