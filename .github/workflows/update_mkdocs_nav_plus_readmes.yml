@@ -42,5 +42,10 @@ jobs:
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
           git add mkdocs.yml README.md
-          git commit -m "🔄 Auto-update nav y README extendido por badges dinámicos"
-          git push
+          git diff --cached --quiet || git commit -m "🔄 Auto-update nav y README extendido por badges dinámicos"
+          REPO_URL="https://x-access-token:${GITHUB_TOKEN}'@github.com/${GITHUB_REPOSITORY}.git"
+          git push "$REPO_URL" HEAD:${GITHUB_REF#refs/heads/}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+          GITHUB_REF: ${{ github.ref }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
