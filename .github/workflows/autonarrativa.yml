@@ -30,3 +30,4 @@ jobs:
             Por favor revisa antes de fusionar.
           branch: auto/storyline-update
           delete-branch: true
+          token: ${{ secrets.GH_PAT }}
