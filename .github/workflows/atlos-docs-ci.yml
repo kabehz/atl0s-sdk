@@ -17,9 +17,11 @@ jobs:
           fetch-depth: 0
 
       - name: 🐳 Construir contenedor atlos-docs
-        run: docker build -t atlos-docs actions/atlos-docs
+        working-directory: actions/atlos-docs
+        run: docker build -t atlos-docs .
 
       - name: 🧠 Ejecutar atlos-docs en modo semantic
+        working-directory: actions/atlos-docs
         run: docker run --rm -v "${{ github.workspace }}:/app" atlos-docs semantic
 
       - name: 🛠️ Configurar Git
